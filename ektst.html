@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="uz" class="h-100">
+<head>
+    <title></title>
+    <meta name="csrf-param" content="_csrf">
+<meta name="csrf-token" content="h1brVja3HI7Ci-sePCi8jxp6hgoR_phr04Hybd0GgRXvNYQ6TPRlxbDBpVx7fdj2dCPXeCab1FiG-4sy6Cv2Jw==">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link type="image/x-icon" href="/web/favicon.ico" rel="icon">
+<link href="/web/assets/9d79efd8/dist/css/bootstrap.css" rel="stylesheet">
+<link href="/web/css/site.css" rel="stylesheet"></head>
+<body class="d-flex flex-column h-100">
+
+<header id="header">
+    <nav id="w0" class="navbar-expand-md navbar-dark bg-dark navbar">
+<div class="container">
+<a class="navbar-brand" href="/web/index.php">Test rejimida ishlamoqda</a>
+<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#w0-collapse" aria-controls="w0-collapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+<div id="w0-collapse" class="collapse navbar-collapse">
+<ul id="w1" class="navbar-nav nav"><li class="nav-item"><a class="nav-link" href="/web/index.php?r=fan%2Findex">Fanlar</a></li>
+<li class="nav-item"><a class="nav-link" href="/web/index.php?r=quiz%2Findex">Testlar</a></li>
+<li class="nav-item"><form action="/web/index.php?r=site%2Flogout" method="post">
+<input type="hidden" name="_csrf" value="h1brVja3HI7Ci-sePCi8jxp6hgoR_phr04Hybd0GgRXvNYQ6TPRlxbDBpVx7fdj2dCPXeCab1FiG-4sy6Cv2Jw=="><button type="submit" class="nav-link btn btn-link logout">Logout (azizbek_mahkamov)</button></form></li></ul></div>
+</div>
+</nav></header>
+
+<main id="main" class="flex-shrink-0" role="main">
+    <div class="container">
+                        <!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fanidan test savollari</title>
+    <style>
+        input[type="checkbox"] { display: none; }
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        #header{
+            visibility: hidden;
+            width: 0px;
+            height: 0px;
+
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin: 20px 0;
+            font-size: 24px;
+        }
+        .answer {
+
+            display: block;
+            margin: 5px 0;
+            padding: 10px;
+            border-bottom-color: #0a0a0a;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 18px;
+        }
+        .timer {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .pagination {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .number-pagination button {
+            margin: 0 2px;
+            padding: 5px 10px;
+            border: 1px solid #0a0a0a; /* Chegara qo'shildi */
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #b0e0e6;
+        }
+        .answered-correct {
+            background-color: lightgreen;
+        }
+        .answered-incorrect {
+            background-color: lightcoral;
+        }
+        .unanswered {
+            background-color: #c4c4c4;
+        }
+        #navigationButtons {
+            text-align: center;
+            margin: 10px 0;
+        }
+        #navigationButtons button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #b0e0e6;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3 style="text-align: center">Ma'lumotlar tuzilmasi va algoritmi fanidan test savollari</h3>
+    <div class="timer" id="timer">160:0</div>
+    <div id="quiz"></div>
+    <div id="navigationButtons">
+        <button id="prevButton" style="display: none;">Oldingi</button>
+        <button id="nextButton">Keyingi</button>
+    </div>
+    <div class="pagination">
+        <div class="number-pagination" id="numberPagination"></div>
+    </div>
+    <button id="submit">Natijalarni yuborish</button>
+    <div id="results" style="display: none;"></div>
+    <div id="finalResults" style="display: none;"></div>
+    <iframe src="https://chatgpt.com/c/678545d6-6130-800e-9740-a7bf03c93da5/" > <h1>saloom</h1></iframe>
+</div>
+
+<script>
+    
+    const quizData=[{'question': "Elektr toki qanday o'lchanadi?", 'answers': {'a': 'Amper', 'b': 'Volt', 'c': 'Om', 'd': 'Gerts'}, 'correct': 'a'}, {'question': 'Rezistorning asosiy vazifasi nima?', 'answers': {'a': 'Tokni kuchaytirish', 'b': "Kuchlanishni o'lchash", 'c': "Qarshilik ko'rsatish", 'd': 'D) Signallarni kuchaytirish'}, 'correct': 'c'}, {'question': 'Elektron sxemada diodning asosiy vazifasi nima?', 'answers': {'a': 'Tokni kuchaytirish', 'b': "Tokni bir yo'nalishda o'tkazish", 'c': "Kuchlanishni o'lchash", 'd': 'Signallarni pasaytirish'}, 'correct': 'b'}, {'question': 'Transistorlarning asosiy turlari qaysilar?', 'answers': {'a': 'BJT va FET', 'b': 'LED va LCD', 'c': 'Diode va Triode', 'd': 'Resistor va Kondensator'}, 'correct': 'a'}, {'question': 'Kondensatorning asosiy funksiyasi nima?', 'answers': {'a': "Tokni o'lchash", 'b': 'Energiyani saqlash', 'c': 'Tokni kuchaytirish', 'd': "Qarshilik ko'rsatish"}, 'correct': 'b'}, {'question': 'Elektr toki birligi qanday?', 'answers': {'a': 'Om', 'b': 'Volt', 'c': 'Amper', 'd': 'Vat'}, 'correct': 'c'}, {'question': "Yarim o'tkazgich materialiga misol bo'la oladigan element qaysi?", 'answers': {'a': 'Kumush', 'b': 'Silikon', 'c': 'Mis', 'd': 'Qalay'}, 'correct': 'b'}, {'question': 'Analog signal nima bilan farq qiladi?', 'answers': {'a': 'Raqamli signaldan uzluksizligi bilan', 'b': "Faqat 0 va 1 qiymatlari bo'lishi bilan", 'c': 'Doimiy kuchlanish bilan', 'd': "Tok yo'nalishi bilan"}, 'correct': 'a'}, {'question': 'Diqqat sxema uchun mos keladigan tok manbai qaysi?', 'answers': {'a': 'Doimiy tok (DC)', 'b': "O'zgaruvchan tok (AC)", 'c': 'Ikkalasi mos keladi', 'd': 'Faqat yuqori kuchlanishli tok'}, 'correct': 'c'}, {'question': 'Om qarshilikni qanday ifodalaydi?', 'answers': {'a': "Kuchlanishni to'g'irlash", 'b': "Elektr toki o'tkazuvchanligini pasaytirish", 'c': 'Kuchlanishni oshirish', 'd': "Signallarni o'zgartirish"}, 'correct': 'b'}, {'question': 'LED qisqartmasi nimani anglatadi?', 'answers': {'a': 'Light Emitting Diode', 'b': 'Linear Energy Device', 'c': 'Low Energy Device', 'd': 'Light Energy Diode'}, 'correct': 'a'}, {'question': 'Induktor qanday komponent?', 'answers': {'a': 'Energiyani saqlaydi va elektromagnit maydon hosil qiladi', 'b': 'Tokni kuchaytiradi', 'c': "Signalni o'zgartiradi", 'd': 'Elektrni saqlaydi'}, 'correct': 'a'}, {'question': "Kuchlanish o'lchov birligi nima?", 'answers': {'a': 'Om', 'b': 'Volt', 'c': 'Vat', 'd': 'Gerts'}, 'correct': 'b'}, {'question': "Elektron sxemada uzilish sodir bo'lganda, qanday komponent muammo bartaraf etishda yordam beradi?", 'answers': {'a': 'Rezistor', 'b': "Sug'urta", 'c': 'Kondensator', 'd': 'Transformator'}, 'correct': 'b'}, {'question': 'Rezistorning rang kodlari nima uchun ishlatiladi?', 'answers': {'a': "Kondensator sig'imini aniqlash uchun", 'b': 'Qarshilik qiymatini belgilash uchun', 'c': 'Kuchlanishni aniqlash uchun', 'd': 'Faqat estetik maqsadda'}, 'correct': 'b'}, {'question': 'Elektr sxemada diodlar qaysi rolni bajaradi?', 'answers': {'a': 'Tokni qayta ishlash', 'b': "Tokni bir tomonlama o'tkazish", 'c': 'Signalni kuchaytirish', 'd': 'Tokni kamaytirish'}, 'correct': 'b'}, {'question': 'Bir fazali AC kuchlanish chastotasi Oâ€˜zbekistonda necha gerts?', 'answers': {'a': '50 Gerts', 'b': '60 Gerts', 'c': '120 Gerts', 'd': '75 Gerts'}, 'correct': 'a'}, {'question': 'Elektron sxemada tranzistorning vazifasi nima?', 'answers': {'a': "Tokni bir yo'nalishda o'tkazish", 'b': 'Kuchlanishni kamaytirish', 'c': 'Tokni boshqarish', 'd': 'Signalni kuchaytirish'}, 'correct': 'c'}, {'question': "O'zgaruvchan tok (AC) va doimiy tok (DC) orasidagi farq nima?", 'answers': {'a': 'AC faqat elektr qurilmalari uchun ishlatiladi, DC esa faqat motorlar uchun', 'b': "AC kuchlanishi o'zgarmaydi, DC esa o'zgaradi", 'c': "AC kuchlanishi o'zgaradi, DC esa o'zgarmaydi", 'd': 'Ikkalasi ham bir xil ishlatiladi'}, 'correct': 'c'}, {'question': 'Kondensatorlarning qanday xususiyati mavjud?', 'answers': {'a': "Ular energiyani to'playdi va zaryadni saqlaydi", 'b': "Ular faqat tokni yo'naltiradi", 'c': 'Ular faqat kuchlanishni oshiradi', 'd': 'Ular signalni kuchaytiradi'}, 'correct': 'a'}, {'question': 'Elektr sxemada induktor nima uchun ishlatiladi?', 'answers': {'a': 'Tokni pasaytirish', 'b': 'Kuchlanishni oshirish', 'c': 'Elektr maydon hosil qilish', 'd': 'Energiya saqlash'}, 'correct': 'c'}, {'question': "Qaysi qurilma bir vaqtning o'zida signalni ham kuchaytiradi, ham yo'naltiradi?", 'answers': {'a': 'Diod', 'b': 'Tranzistor', 'c': 'Kondensator', 'd': 'Induktor'}, 'correct': 'b'}, {'question': 'Elektr sxemada transformator qanday vazifani bajaradi?', 'answers': {'a': 'Tokni kuchaytirish', 'b': "Kuchlanishni o'zgartirish", 'c': 'Signalni kuchaytirish', 'd': 'Energiya saqlash'}, 'correct': 'b'}, {'question': 'Diqqat sxemalarida rezistorning vazifasi nima?', 'answers': {'a': 'Tokni oshirish', 'b': 'Tokni cheklash', 'c': 'Signalni kuchaytirish', 'd': "Energiya to'plash"}, 'correct': 'b'}, {'question': 'Diodning asosiy xususiyati nima?', 'answers': {'a': "Tokni har ikki yo'nalishda o'tkazish", 'b': "Tokni faqat bir yo'nalishda o'tkazish", 'c': 'Signalni kuchaytirish', 'd': "Kuchlanishni o'zgartirish"}, 'correct': 'b'}, {'question': 'Elektron sxemalarda "GND" nima?', 'answers': {'a': 'Tokni kuchaytiruvchi', 'b': 'Elektron komponent', 'c': "Yerdagi elektr o'lchov nuqtasi", 'd': 'Elektron energiya manbai'}, 'correct': 'c'}, {'question': 'Resistorlar qanday materiallardan tayyorlanadi?', 'answers': {'a': 'Yengil plastik', 'b': 'Metall va qarshilik materiallari', 'c': 'Keramika', 'd': 'Kam quvvatli materiallar'}, 'correct': 'b'}, {'question': "Elektr sxemada kondensatorlar va rezistorlar o'zaro qanday ulanadi?", 'answers': {'a': "To'g'ridan-to'g'ri parallel", 'b': 'Faol parallel', 'c': 'Seriya ulanishda', 'd': "Hech qanday aloqasi yo'q"}, 'correct': 'c'}, {'question': "Diqqat sxemalarida tranzistorlar ko'pincha qanday maqsadlar uchun ishlatiladi?", 'answers': {'a': 'Tokni kuchaytirish', 'b': "Signallarni to'xtatish", 'c': "Kuchlanishni o'zgartirish", 'd': 'Tokni filtrlash'}, 'correct': 'a'}, {'question': 'LED-lar qanday xususiyatga ega?', 'answers': {'a': 'Faqat qizil rangda ishlaydi', 'b': 'Kam energiya sarflaydi', 'c': 'Yaltiroq effekt yaratmaydi', 'd': "Tokni faqat yuqori kuchlanishda o'tkazadi"}, 'correct': 'b'}, {'question': "Elektron sxemada uzilish bo'lsa, qaysi qurilma tokni qayta tiklashga yordam beradi?", 'answers': {'a': 'Diod', 'b': "Sug'urta", 'c': 'Rezistor', 'd': 'Kondensator'}, 'correct': 'b'}, {'question': "Bir fazali o'zgaruvchan tok (AC) qaysi xususiyatga ega?", 'answers': {'a': "Tok bir tomonlama o'tadi", 'b': "Kuchlanish doimiy bo'ladi", 'c': "Tok va kuchlanish doimiy ravishda o'zgaradi", 'd': 'Tok faqat past kuchlanishda ishlaydi'}, 'correct': 'c'}, {'question': "Bir fazali o'zgaruvchan tokda faza bilan to'qnashuv nima?", 'answers': {'a': "Kuchlanishning yo'qolishi", 'b': "Tokning yo'qolishi", 'c': "Tok va kuchlanishning to'g'ri moslashishi", 'd': 'Kuchlanish va tokning orasidagi burchakli farq'}, 'correct': 'd'}, {'question': "Elektron sxemada kondensatorlarning to'liq zaryadi qanday sodir bo'ladi?", 'answers': {'a': "Tokni to'liq o'zgartirish orqali", 'b': "Kuchlanishning o'zgarishi orqali", 'c': "Zaryadning to'liq saqlanishi orqali", 'd': 'Energiyaning yutilishi orqali'}, 'correct': 'c'}, {'question': 'Elektron sxemalarda quvvatni qanday hisoblash mumkin?', 'answers': {'a': "Tok va kuchlanishning ko'paytmasi orqali", 'b': 'Tok va kuchlanishning ayirmasi orqali', 'c': 'Signalning chastotasi orqali', 'd': 'Energiya miqdori orqali'}, 'correct': 'a'}, {'question': 'AC va DC toklarining farqi nima?', 'answers': {'a': "AC faqat ikkita yo'nalishdan birida o'tadi, DC esa doimiy yo'nalishda o'tadi", 'b': "AC kuchlanish doimiy, DC esa o'zgaruvchan", 'c': "AC va DC orasida hech qanday farq yo'q", 'd': "AC o'zgaruvchan kuchlanishga ega, DC esa doimiy kuchlanishga ega"}, 'correct': 'd'}, {'question': "Elektr sxemalarda kondensatorning kuchlanishi qanday o'zgaradi?", 'answers': {'a': "U doimiy ravishda o'zgaradi", 'b': "U o'zgarishlarni o'z ichiga olmaydi", 'c': "U boshlang'ich kuchlanishga to'g'ri keladi", 'd': 'U zaryadni saqlab qoladi'}, 'correct': 'a'}, {'question': 'Transistorning uchta asosiy terminali qaysilar?', 'answers': {'a': 'Kollektyor, baza, emitor', 'b': 'Anod, katod, baza', 'c': 'Anod, emitor, kollektor', 'd': 'Baza, tok, uzluksizlik'}, 'correct': 'a'}, {'question': 'Induktorlarning asosiy funktsiyasi nima?', 'answers': {'a': 'Tokni kuchaytirish', 'b': 'Tokni cheklash', 'c': 'Magnit maydon hosil qilish', 'd': "Tokni o'lchash"}, 'correct': 'c'}, {'question': "Diodning yonish kuchlanishiga nima ta'sir qiladi?", 'answers': {'a': 'Diodning rangi', 'b': "Diodning o'lchami", 'c': 'Kuchlanish va tok', 'd': "Qonuniy o'lchovlar"}, 'correct': 'c'}, {'question': 'Elektron sxemalarda, kondensatorlarning turlari qaysilar?', 'answers': {'a': 'Suyuqlik va gaz', 'b': 'Keramika va elektrolit', 'c': 'Alimniy va plastik', 'd': 'Elektromagnit va gaz'}, 'correct': 'b'}, {'question': "Yarim o'tkazgich qanday materiallardan tashkil topadi?", 'answers': {'a': 'Mis va alÃ¼miniy', 'b': 'Silikon va germanium', 'c': 'Kumush va mis', 'd': 'Temir va qotishmalar'}, 'correct': 'b'}, {'question': 'Tranzistorning uchta terminalining vazifasi qanday?', 'answers': {'a': 'Baza signalni qabul qiladi, kollektyor va emitor esa tokni boshqaradi', 'b': 'Baza, kollektyor va emitor faqat signal uzatadi', 'c': 'Kollektyor signalni qabul qiladi, emitor esa energiyani tarqatadi', 'd': 'Baza faqat kuchlanishni boshqaradi'}, 'correct': 'a'}, {'question': 'Elektr sxemalarida signal kuchaytirish uchun qaysi qurilma ishlatiladi?', 'answers': {'a': 'Diod', 'b': 'Tranzistor', 'c': 'Induktor', 'd': 'Kondensator'}, 'correct': 'b'},
+     {'question': 'Kondensatorni qanday ishlatish mumkin?', 'answers': {'a': 'Tokni kuchaytirish uchun', 'b': "Energiyani saqlash va zarur bo'lganda chiqarish uchun", 'c': 'Kuchlanishni pasaytirish uchun', 'd': 'Tokni boshqarish uchun'}, 'correct': 'b'}, {'question': 'Elektr sxemalarida "AC" va "DC" qisqartmalari nimani anglatadi?', 'answers': {'a': 'Analog Control va Digital Control', 'b': 'Alternating Current va Direct Current', 'c': 'Automatic Control va Digital Control', 'd': 'Alternating Circuit va Direct Circuit'}, 'correct': 'b'}, {'question': 'Transformatorning asosiy vazifasi nima?', 'answers': {'a': 'Kuchlanishni oshirish', 'b': 'Tokni kuchaytirish', 'c': "Kuchlanishni o'zgartirish", 'd': 'okni cheklash'}, 'correct': 'c'}, {'question': 'Transformatorning samaradorligini aniqlashda qanday omil eng muhimdir?', 'answers': {'a': 'Diodning qarshiligi', 'b': "Magnetik yo'qotishlar", 'c': "Kondensatorning sig'imi", 'd': 'Tranzistorning ishlash tezligi'}, 'correct': 'b'}, {'question': 'Asinxron dvigatelning ishlash prinsipi nima?', 'answers': {'a': 'Doimiy tezlikda ishlaydi', 'b': "Rotor maydoni stator maydoniga qarama-qarshi yo'nalishda aylanadi", 'c': "Rotor va stator maydonlari doimo bir xil yo'nalishda aylanishi kerak", 'd': "Rotor va stator maydonlari doimiy ravishda bir-biriga parallel bo'ladi"}, 'correct': 'b'}, {'question': 'Asinxron dvigatelda rotorning aylanish tezligi nima bilan belgilanadi?', 'answers': {'a': 'Statordagi kuchlanishning qiymati', 'b': 'Rotorning ishlash tezligi bilan', 'c': 'Statorning aylanish tezligi bilan', 'd': "Rotorning aylanish tezligi stator maydoniga nisbatan bo'ladi"}, 'correct': 'd'}, {'question': 'Asinxron dvigatelning foydalari qaysilar?', 'answers': {'a': 'Ular faqat yuqori kuchlanishli tizimlarda ishlaydi', 'b': 'Ular yaxshi samaradorlikka ega va kam texnik xizmatni talab qiladi', 'c': 'Ular faqat kichik qurilmalarda ishlaydi', 'd': 'Ular doimiy tokda ishlaydi'}, 'correct': 'b'}, {'question': "Yarimo'tkazgichli diod nima uchun ishlatiladi?", 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Kuchlanishni oshirish', 'c': 'Elektr energiyasini saqlash', 'd': 'Signallarni kuchaytirish'}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diodning asosiy xususiyati nima?", 'answers': {'a': "U har qanday tokni o'zgartiradi", 'b': 'U kuchlanishni doimiy ravishda oshiradi', 'c': "U tokni faqat bir yo'nalishda o'tkazadi", 'd': 'U kuchlanishni kamaytiradi'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodning ishlash prinsipi qanday?", 'answers': {'a': "Tokni har ikki yo'nalishda o'tkazish orqali ishlaydi", 'b': "Faol yuzalari orqali bir yo'nalishdagi tokni o'tkazadi", 'c': 'Energiyani saqlaydi', 'd': "O'zgaruvchan tokni doimiy tokka aylantiradi"}, 'correct': 'b'}, {'question': "Nima sababdan yarimo'tkazgichli diodlar tarmoqlarda ko'proq ishlatiladi?", 'answers': {'a': 'Ular yuqori kuchlanishda ishlaydi', 'b': 'Ular kichik hajmdagi komponentlar', 'c': 'Ular faqat tarmoqlarda ishlaydi', 'd': 'Ular doimiy tokni kuchaytiradi'}, 'correct': 'b'}, {'question': 'Tranzistorning ishlash prinsipi nima?', 'answers': {'a': 'Elektr energiyasini magnit energiyasiga aylantiradi', 'b': "Tokni faqat bir yo'nalishda o'tkazadi", 'c': 'Signallarni kuchaytiradi va boshqaradi', 'd': 'Elektronlarni saqlaydi'}, 'correct': 'c'}, {'question': 'Tranzistorlar nima uchun ishlatiladi?', 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Signallarni kuchaytirish va boshqarish', 'c': 'Kuchlanishni oshirish', 'd': 'Tokni kuchaytirish'}, 'correct': 'b'}, {'question': 'Tranzistorning asosiy turlari qaysilar?', 'answers': {'a': 'PNP va NPN', 'b': 'LED va LCD', 'c': 'Diod va Induktor', 'd': 'Kondenstor va Rezistor'}, 'correct': 'a'}, {'question': "Tranzistorlar ko'pincha qanday rolda ishlatiladi?", 'answers': {'a': 'Signalni kuchaytirish', 'b': 'Tokni cheklash', 'c': 'Kuchlanishni kamaytirish', 'd': 'Elektr energiyasini saqlash'}, 'correct': 'a'}, {'question': 'Tranzistorlar qanday ishlash rejimlariga ega?', 'answers': {'a': 'Yuksaltirish va pastlatirish', 'b': 'Aktiv va pasiv', 'c': 'Ochiq va yopiq', 'd': "Qaytish va to'xtash"}, 'correct': 'b'}, {'question': 'Tranzistorning bazasi nima uchun ishlatiladi?', 'answers': {'a': 'Tokni boshqaradi', 'b': 'Signalni kuchaytiradi', 'c': 'Kuchlanishni oshiradi', 'd': 'Elektr energiyasini saqlaydi'}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diodlar va tranzistorlar orasidagi farq nima?", 'answers': {'a': 'Tranzistorlar faqat kuchlanishni boshqaradi', 'b': "Diod faqat tokni bir yo'nalishda o'tkazadi, tranzistorlar esa signallarni kuchaytiradi", 'c': "Tranzistorlar faqat o'zgaruvchan tokni ishlatadi", 'd': 'Diodlar faqat signallarni kuchaytiradi'}, 'correct': 'b'}, {'question': 'Transformatorning samaradorligini oshirish uchun qanday materiallar ishlatiladi?', 'answers': {'a': 'Qalay va mis', 'b': 'Metall va keramika', 'c': "Yuqori o'tkazuvchanlikka ega materiallar, masalan, temir yadro", 'd': 'Plastik va kremniy'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodlar o'zgaruvchan tokni qanday o'zgartiradi?", 'answers': {'a': "Ular o'zgaruvchan tokni to'liq tokka aylantiradi", 'b': "Ular o'zgaruvchan tokni boshqaradi", 'c': "Ular o'zgaruvchan tokni pasaytiradi", 'd': "Ular o'zgaruvchan tokni"}, 'correct': 'a'}, {'question': 'Asinxron dvigatelning rotorida nima mavjud?', 'answers': {'a': "Faol yo'naltirilgan magnetlar", 'b': "O'zgaruvchan magnit maydoni", 'c': 'Doimiy magnit maydoni', 'd': 'Tokni pasaytiruvchi komponentlar'}, 'correct': 'b'}, {'question': 'Diodning asosiy vazifasi nima?', 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Kuchlanishni oshirish', 'c': 'Signalni kuchaytirish', 'd': "Tokni har ikki yo'nalishda o'tkazish"}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diod nima uchun ishlatiladi?", 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': "Tokni ikkita yo'nalishda o'tkazish", 'c': 'Kuchlanishni oshirish', 'd': 'Signalni kuchaytirish'}, 'correct': 'a'}, {'question': 'Diodning asosiy turlari qaysilar?', 'answers': {'a': 'PNP va NPN', 'b': 'Anod va katod', 'c': 'P-N va Zener diodlari', 'd': 'Diod va tranzistor'}, 'correct': 'c'}, {'question': 'P-N diod nima?', 'answers': {'a': "Elektronlarni doimiy ravishda yo'naltiradi", 'b': "Tokni faqat bir yo'nalishda o'tkazadigan yarimo'tkazgichli komponent", 'c': 'Energiyani saqlaydi', 'd': "Ikkita terminalga ega bo'lgan kondensator"}, 'correct': 'b'}, {'question': 'Zener diodning asosiy xususiyati nima?', 'answers': {'a': 'U faqat yuqori kuchlanishda ishlaydi', 'b': "U o'zgaruvchan kuchlanishda ishlaydi", 'c': "U kuchlanishning ko'payishiga qarshi ishlaydi va teskari kuchlanish ta'sirida ishlaydi", 'd': 'U kuchlanishni pasaytiradi'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodlar qanday materiallardan tayyorlanadi?", 'answers': {'a': 'Plastik', 'b': 'Keramika', 'c': 'Kremniy yoki germaniy', 'd': 'Temir yoki mis'}, 'correct': 'c'}, {'question': 'Fotodiod qanday ishlaydi?', 'answers': {'a': "Ikkita yonalishli tokni o'tkazadi", 'b': 'faqat yuqori kuchlanishli tizimlarda ishlaydi', 'c': "yorug'lik ta'sirida tokni o'tkazadi", 'd': 'kuchlanishni oshiradi'}, 'correct': 'c'}, {'question': 'Shotki diodning boshqa diodlardan farqi nima?', 'answers': {'a': 'U yuqori kuchlanishda ishlaydi', 'b': "U faqat pasaytiruvchi tokni o'tkazadi", 'c': 'U past kuchlanishli tushishiga ega va tezroq ishlaydi', 'd': "U faqat o'zgaruvchan tokni o'tkazadi"}, 'correct': 'c'}, {'question': 'LED (Light Emitting Diode) diodning asosiy xususiyati nima?', 'answers': {'a': 'U energiyani saqlaydi', 'b': "U faqat qizil rangda yorug'lik chiqaradi", 'c': "U yorug'lik chiqaradi, lekin energiya sarflaydi", 'd': "U energiyani kam sarflaydi va yorug'lik hosil qiladi"}, 'correct': 'd'}, {'question': "Diodlar nima uchun ko'proq ishlatiladi?", 'answers': {'a': 'Ular kuchlanishni oshiradi', 'b': 'Ular signallarni kuchaytiradi', 'c': "Ular faqat bir yo'nalishdagi tokni o'tkazadi, bu esa tizimlarni himoya qiladi", 'd': 'Ular faqat yuqori kuchlanishli tizimlarda ishlaydi'}, 'correct': 'c'}, {'question': 'Tunnel diodning ishlash prinsipida nima bor?', 'answers': {'a': 'U past kuchlanishda ishlaydi va yuqori tezlikda ishlaydi', 'b': 'U kuchlanishni oshiradi', 'c': "U faqat bir yo'nalishdagi tokni o'tkazadi", 'd': 'U kuchlanishlarni kamaytiradi'}, 'correct': 'a'}, {'question': "Diodning 'forward bias' rejimi qanday ishlaydi?", 'answers': {'a': "Diod tokni faqat teskari yo'nalishda o'tkazadi", 'b': "Diod tokni faqat oldinga yo'nalishda o'tkazadi", 'c': "Diod tokni hech qanday yo'nalishda o'tkazmaydi", 'd': "Diodning kuchlanishi o'zgarmaydi"}, 'correct': 'b'}, {'question': 'Om qonuni nima?', 'answers': {'a': 'Kuchlanishning qarshilikka nisbati toki beradi', 'b': 'Tokning kuchlanishga nisbati qarshilikni beradi', 'c': 'Qarshilikning kuchlanishga nisbati toki beradi', 'd': 'Tokning qarshilikka nisbati kuchlanishni beradi'}, 'correct': 'a'}, {'question': "Om qonuniga ko'ra, agar qarshilik 10 om va kuchlanish 20V bo'lsa, tokni qanday hisoblash mumkin?", 'answers': {'a': '2 A', 'b': '20 A', 'c': '30 A', 'd': '200 A'}, 'correct': 'a'}, {'question': "Om qonuniga ko'ra, agar tok 5 A va qarshilik 4 ohm bo'lsa, kuchlanish qanday hisoblanadi?", 'answers': {'a': '9 V', 'b': '10 V', 'c': '20 V', 'd': '40 V'}, 'correct': 'd'}, {'question': "Om qonuni bo'yicha, kuchlanish va tokni hisoblashda qarshilik qanday o'zgaradi?", 'answers': {'a': 'Agar kuchlanish oshsa, tok kamayadi, qarshilik oshadi', 'b': 'Agar kuchlanish oshsa, tok oshadi, qarshilik kamayadi', 'c': "Agar kuchlanish oshsa, tok oshadi, qarshilik o'zgaradi", 'd': "Agar kuchlanish oshsa, tok o'zgaradi, qarshilik o'zgaradi"}, 'correct': 'c'}, 
+     {'question': 'Kirxgofning birinchi qonuni qanday ifodalanadi?', 'answers': {'a': "Tugunga kiruvchi va chiquvchi toklarning algebraik yigâ€™indisi  0 ga teng bo'ladi", 'b': "Oqimlarning yig'indisi 1 ga teng bo'ladi", 'c': "Kuchlanishlarning yig'indisi 0 ga teng bo'ladi", 'd': "Kuchlanishlarning yig'indisi 1 ga teng bo'ladi"}, 'correct': 'a'}, {'question': 'Kirxgofning ikkinchi qonuni qanday ifodalanadi?', 'answers': {'a': "Tugunga kiruvchi va chiquvchi kuchlanishlarning yig'indisi 0 ga teng bo'ladi", 'b': "Tugunga kiruvchi va chiquvchi toklarning algebraik yigâ€™indisi  0 ga teng bo'ladi", 'c': "Oqimlar 1 ga teng bo'ladi", 'd': "Kuchlanishlar 1 ga teng bo'ladi"}, 'correct': 'a'}, {'question': "Kirxgofning ikkinchi qonunini qanday qo'llash mumkin?", 'answers': {'a': 'Oqimlarni hisoblash uchun', 'b': 'Kuchlanishlarni tarmoqda joylashtirish uchun', 'c': 'Tarmoqda oqimlarning tarqalishini hisoblash uchun', 'd': "Kuchlanishning to'liq miqdorini hisoblash uchun"}, 'correct': 'b'},{'question': 'Tranzistorning uchta terminalining vazifasi qanday?', 'answers': {'a': 'Baza signalni qabul qiladi, kollektyor va emitor esa tokni boshqaradi', 'b': 'Baza, kollektyor va emitor faqat signal uzatadi', 'c': 'Kollektyor signalni qabul qiladi, emitor esa energiyani tarqatadi', 'd': 'Baza faqat kuchlanishni boshqaradi'}, 'correct': 'a'}, {'question': 'Elektr sxemalarida signal kuchaytirish uchun qaysi qurilma ishlatiladi?', 'answers': {'a': 'Diod', 'b': 'Tranzistor', 'c': 'Induktor', 'd': 'Kondensator'}, 'correct': 'b'}, {'question': 'Kondensatorni qanday ishlatish mumkin?', 'answers': {'a': 'Tokni kuchaytirish uchun', 'b': "Energiyani saqlash va zarur bo'lganda chiqarish uchun", 'c': 'Kuchlanishni pasaytirish uchun', 'd': 'Tokni boshqarish uchun'}, 'correct': 'b'}, {'question': 'Elektr sxemalarida "AC" va "DC" qisqartmalari nimani anglatadi?', 'answers': {'a': 'Analog Control va Digital Control', 'b': 'Alternating Current va Direct Current', 'c': 'Automatic Control va Digital Control', 'd': 'Alternating Circuit va Direct Circuit'}, 'correct': 'b'}, {'question': 'Transformatorning asosiy vazifasi nima?', 'answers': {'a': 'Kuchlanishni oshirish', 'b': 'Tokni kuchaytirish', 'c': "Kuchlanishni o'zgartirish", 'd': 'okni cheklash'}, 'correct': 'c'}, {'question': 'Transformatorning samaradorligini aniqlashda qanday omil eng muhimdir?', 'answers': {'a': 'Diodning qarshiligi', 'b': "Magnetik yo'qotishlar", 'c': "Kondensatorning sig'imi", 'd': 'Tranzistorning ishlash tezligi'}, 'correct': 'b'}, {'question': 'Asinxron dvigatelning ishlash prinsipi nima?', 'answers': {'a': 'Doimiy tezlikda ishlaydi', 'b': "Rotor maydoni stator maydoniga qarama-qarshi yo'nalishda aylanadi", 'c': "Rotor va stator maydonlari doimo bir xil yo'nalishda aylanishi kerak", 'd': "Rotor va stator maydonlari doimiy ravishda bir-biriga parallel bo'ladi"}, 'correct': 'b'}, {'question': 'Asinxron dvigatelda rotorning aylanish tezligi nima bilan belgilanadi?', 'answers': {'a': 'Statordagi kuchlanishning qiymati', 'b': 'Rotorning ishlash tezligi bilan', 'c': 'Statorning aylanish tezligi bilan', 'd': "Rotorning aylanish tezligi stator maydoniga nisbatan bo'ladi"}, 'correct': 'd'}, {'question': 'Asinxron dvigatelning foydalari qaysilar?', 'answers': {'a': 'Ular faqat yuqori kuchlanishli tizimlarda ishlaydi', 'b': 'Ular yaxshi samaradorlikka ega va kam texnik xizmatni talab qiladi', 'c': 'Ular faqat kichik qurilmalarda ishlaydi', 'd': 'Ular doimiy tokda ishlaydi'}, 'correct': 'b'}, {'question': "Yarimo'tkazgichli diod nima uchun ishlatiladi?", 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Kuchlanishni oshirish', 'c': 'Elektr energiyasini saqlash', 'd': 'Signallarni kuchaytirish'}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diodning asosiy xususiyati nima?", 'answers': {'a': "U har qanday tokni o'zgartiradi", 'b': 'U kuchlanishni doimiy ravishda oshiradi', 'c': "U tokni faqat bir yo'nalishda o'tkazadi", 'd': 'U kuchlanishni kamaytiradi'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodning ishlash prinsipi qanday?", 'answers': {'a': "Tokni har ikki yo'nalishda o'tkazish orqali ishlaydi", 'b': "Faol yuzalari orqali bir yo'nalishdagi tokni o'tkazadi", 'c': 'Energiyani saqlaydi', 'd': "O'zgaruvchan tokni doimiy tokka aylantiradi"}, 'correct': 'b'}, {'question': "Nima sababdan yarimo'tkazgichli diodlar tarmoqlarda ko'proq ishlatiladi?", 'answers': {'a': 'Ular yuqori kuchlanishda ishlaydi', 'b': 'Ular kichik hajmdagi komponentlar', 'c': 'Ular faqat tarmoqlarda ishlaydi', 'd': 'Ular doimiy tokni kuchaytiradi'}, 'correct': 'b'}, {'question': 'Tranzistorning ishlash prinsipi nima?', 'answers': {'a': 'Elektr energiyasini magnit energiyasiga aylantiradi', 'b': "Tokni faqat bir yo'nalishda o'tkazadi", 'c': 'Signallarni kuchaytiradi va boshqaradi', 'd': 'Elektronlarni saqlaydi'}, 'correct': 'c'}, {'question': 'Tranzistorlar nima uchun ishlatiladi?', 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Signallarni kuchaytirish va boshqarish', 'c': 'Kuchlanishni oshirish', 'd': 'Tokni kuchaytirish'}, 'correct': 'b'}, {'question': 'Tranzistorning asosiy turlari qaysilar?', 'answers': {'a': 'PNP va NPN', 'b': 'LED va LCD', 'c': 'Diod va Induktor', 'd': 'Kondenstor va Rezistor'}, 'correct': 'a'}, {'question': "Tranzistorlar ko'pincha qanday rolda ishlatiladi?", 'answers': {'a': 'Signalni kuchaytirish', 'b': 'Tokni cheklash', 'c': 'Kuchlanishni kamaytirish', 'd': 'Elektr energiyasini saqlash'}, 'correct': 'a'}, {'question': 'Tranzistorlar qanday ishlash rejimlariga ega?', 'answers': {'a': 'Yuksaltirish va pastlatirish', 'b': 'Aktiv va pasiv', 'c': 'Ochiq va yopiq', 'd': "Qaytish va to'xtash"}, 'correct': 'b'}, {'question': 'Tranzistorning bazasi nima uchun ishlatiladi?', 'answers': {'a': 'Tokni boshqaradi', 'b': 'Signalni kuchaytiradi', 'c': 'Kuchlanishni oshiradi', 'd': 'Elektr energiyasini saqlaydi'}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diodlar va tranzistorlar orasidagi farq nima?", 'answers': {'a': 'Tranzistorlar faqat kuchlanishni boshqaradi', 'b': "Diod faqat tokni bir yo'nalishda o'tkazadi, tranzistorlar esa signallarni kuchaytiradi", 'c': "Tranzistorlar faqat o'zgaruvchan tokni ishlatadi", 'd': 'Diodlar faqat signallarni kuchaytiradi'}, 'correct': 'b'}, {'question': 'Transformatorning samaradorligini oshirish uchun qanday materiallar ishlatiladi?', 'answers': {'a': 'Qalay va mis', 'b': 'Metall va keramika', 'c': "Yuqori o'tkazuvchanlikka ega materiallar, masalan, temir yadro", 'd': 'Plastik va kremniy'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodlar o'zgaruvchan tokni qanday o'zgartiradi?", 'answers': {'a': "Ular o'zgaruvchan tokni to'liq tokka aylantiradi", 'b': "Ular o'zgaruvchan tokni boshqaradi", 'c': "Ular o'zgaruvchan tokni pasaytiradi", 'd': "Ular o'zgaruvchan tokni"}, 'correct': 'a'}, {'question': 'Asinxron dvigatelning rotorida nima mavjud?', 'answers': {'a': "Faol yo'naltirilgan magnetlar", 'b': "O'zgaruvchan magnit maydoni", 'c': 'Doimiy magnit maydoni', 'd': 'Tokni pasaytiruvchi komponentlar'}, 'correct': 'b'}, {'question': 'Diodning asosiy vazifasi nima?', 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Kuchlanishni oshirish', 'c': 'Signalni kuchaytirish', 'd': "Tokni har ikki yo'nalishda o'tkazish"}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diod nima uchun ishlatiladi?", 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': "Tokni ikkita yo'nalishda o'tkazish", 'c': 'Kuchlanishni oshirish', 'd': 'Signalni kuchaytirish'}, 'correct': 'a'}, {'question': 'Diodning asosiy turlari qaysilar?', 'answers': {'a': 'PNP va NPN', 'b': 'Anod va katod', 'c': 'P-N va Zener diodlari', 'd': 'Diod va tranzistor'}, 'correct': 'c'}, {'question': 'P-N diod nima?', 'answers': {'a': "Elektronlarni doimiy ravishda yo'naltiradi", 'b': "Tokni faqat bir yo'nalishda o'tkazadigan yarimo'tkazgichli komponent", 'c': 'Energiyani saqlaydi', 'd': "Ikkita terminalga ega bo'lgan kondensator"}, 'correct': 'b'}, {'question': 'Zener diodning asosiy xususiyati nima?', 'answers': {'a': 'U faqat yuqori kuchlanishda ishlaydi', 'b': "U o'zgaruvchan kuchlanishda ishlaydi", 'c': "U kuchlanishning ko'payishiga qarshi ishlaydi va teskari kuchlanish ta'sirida ishlaydi", 'd': 'U kuchlanishni pasaytiradi'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodlar qanday materiallardan tayyorlanadi?", 'answers': {'a': 'Plastik', 'b': 'Keramika', 'c': 'Kremniy yoki germaniy', 'd': 'Temir yoki mis'}, 'correct': 'c'}, {'question': 'Fotodiod qanday ishlaydi?', 'answers': {'a': "Ikkita yonalishli tokni o'tkazadi", 'b': 'faqat yuqori kuchlanishli tizimlarda ishlaydi', 'c': "yorug'lik ta'sirida tokni o'tkazadi", 'd': 'kuchlanishni oshiradi'}, 'correct': 'c'}, {'question': 'Shotki diodning boshqa diodlardan farqi nima?', 'answers': {'a': 'U yuqori kuchlanishda ishlaydi', 'b': "U faqat pasaytiruvchi tokni o'tkazadi", 'c': 'U past kuchlanishli tushishiga ega va tezroq ishlaydi', 'd': "U faqat o'zgaruvchan tokni o'tkazadi"}, 'correct': 'c'}, {'question': 'LED (Light Emitting Diode) diodning asosiy xususiyati nima?', 'answers': {'a': 'U energiyani saqlaydi', 'b': "U faqat qizil rangda yorug'lik chiqaradi", 'c': "U yorug'lik chiqaradi, lekin energiya sarflaydi", 'd': "U energiyani kam sarflaydi va yorug'lik hosil qiladi"}, 'correct': 'd'}, {'question': "Diodlar nima uchun ko'proq ishlatiladi?", 'answers': {'a': 'Ular kuchlanishni oshiradi', 'b': 'Ular signallarni kuchaytiradi', 'c': "Ular faqat bir yo'nalishdagi tokni o'tkazadi, bu esa tizimlarni himoya qiladi", 'd': 'Ular faqat yuqori kuchlanishli tizimlarda ishlaydi'}, 'correct': 'c'}, {'question': 'Tunnel diodning ishlash prinsipida nima bor?', 'answers': {'a': 'U past kuchlanishda ishlaydi va yuqori tezlikda ishlaydi', 'b': 'U kuchlanishni oshiradi', 'c': "U faqat bir yo'nalishdagi tokni o'tkazadi", 'd': 'U kuchlanishlarni kamaytiradi'}, 'correct': 'a'},
+     {'question': "Diodning 'forward bias' rejimi qanday ishlaydi?", 'answers': {'a': "Diod tokni faqat teskari yo'nalishda o'tkazadi", 'b': "Diod tokni faqat oldinga yo'nalishda o'tkazadi", 'c': "Diod tokni hech qanday yo'nalishda o'tkazmaydi", 'd': "Diodning kuchlanishi o'zgarmaydi"}, 'correct': 'b'}, {'question': 'Om qonuni nima?', 'answers': {'a': 'Kuchlanishning qarshilikka nisbati toki beradi', 'b': 'Tokning kuchlanishga nisbati qarshilikni beradi', 'c': 'Qarshilikning kuchlanishga nisbati toki beradi', 'd': 'Tokning qarshilikka nisbati kuchlanishni beradi'}, 'correct': 'a'}, {'question': "Om qonuniga ko'ra, agar qarshilik 10 om va kuchlanish 20V bo'lsa, tokni qanday hisoblash mumkin?", 'answers': {'a': '2 A', 'b': '20 A', 'c': '30 A', 'd': '200 A'}, 'correct': 'a'}, {'question': "Om qonuniga ko'ra, agar tok 5 A va qarshilik 4 ohm bo'lsa, kuchlanish qanday hisoblanadi?", 'answers': {'a': '9 V', 'b': '10 V', 'c': '20 V', 'd': '40 V'}, 'correct': 'd'}, {'question': "Om qonuni bo'yicha, kuchlanish va tokni hisoblashda qarshilik qanday o'zgaradi?", 'answers': {'a': 'Agar kuchlanish oshsa, tok kamayadi, qarshilik oshadi', 'b': 'Agar kuchlanish oshsa, tok oshadi, qarshilik kamayadi', 'c': "Agar kuchlanish oshsa, tok oshadi, qarshilik o'zgaradi", 'd': "Agar kuchlanish oshsa, tok o'zgaradi, qarshilik o'zgaradi"}, 'correct': 'c'}, {'question': 'Kirxgofning birinchi qonuni qanday ifodalanadi?', 'answers': {'a': "Tugunga kiruvchi va chiquvchi toklarning algebraik yigâ€™indisi  0 ga teng bo'ladi", 'b': "Oqimlarning yig'indisi 1 ga teng bo'ladi", 'c': "Kuchlanishlarning yig'indisi 0 ga teng bo'ladi", 'd': "Kuchlanishlarning yig'indisi 1 ga teng bo'ladi"}, 'correct': 'a'}, {'question': 'Kirxgofning ikkinchi qonuni qanday ifodalanadi?', 'answers': {'a': "Tugunga kiruvchi va chiquvchi kuchlanishlarning yig'indisi 0 ga teng bo'ladi", 'b': "Tugunga kiruvchi va chiquvchi toklarning algebraik yigâ€™indisi  0 ga teng bo'ladi ", 'c': "Oqimlar 1 ga teng bo'ladi", 'd': "Kuchlanishlar 1 ga teng bo'ladi"}, 'correct': 'a'}, {'question': "Kirxgofning ikkinchi qonunini qanday qo'llash mumkin?", 'answers': {'a': 'Oqimlarni hisoblash uchun', 'b': 'Kuchlanishlarni tarmoqda joylashtirish uchun', 'c': 'Tarmoqda oqimlarning tarqalishini hisoblash uchun', 'd': "Kuchlanishning to'liq miqdorini hisoblash uchun"}, 'correct': 'b'}, {'question': 'Seriyali ulanadigan qarshiliklar uchun umumiy qarshilik qanday hisoblanadi?', 'answers': {'a': "Qarshiliklarning yig'indisi", 'b': "Qarshiliklarning o'rtacha qiymati", 'c': 'Qarshiliklarning eng katta qiymati', 'd': 'Qarshiliklarning eng kichik qiymati'}, 'correct': 'a'}, {'question': 'Paralel ulanishdagi qarshiliklar uchun umumiy qarshilik qanday hisoblanadi?', 'answers': {'a': "Qarshiliklarning yig'indisi", 'b': "Qarshiliklarning o'rtacha qiymati", 'c': "Qarshiliklarning inversi yig'indisi", 'd': 'Qarshiliklarning eng katta qiymati'}, 'correct': 'c'}, {'question': "Seriyali ulashda qarshiliklar qanday ta'sir qiladi?", 'answers': {'a': 'Qarshiliklarning qiymati kamayadi', 'b': "Qarshiliklarning qiymati o'zgarmaydi", 'c': 'Qarshiliklarning qiymati oshadi', 'd': " Qarshiliklar bir-birini to'liq olib tashlaydi"}, 'correct': 'c'}, {'question': "Paralel ulanishda qarshiliklar qanday ta'sir qiladi?", 'answers': {'a': 'Qarshiliklarning qiymati oshadi', 'b': "Qarshiliklarning qiymati o'zgarmaydi", 'c': ' Qarshiliklarning qiymati kamayadi', 'd': " Qarshiliklar bir-birini to'liq olib tashlaydi"}, 'correct': 'c'},
+{'question': "O'zgaruvchan tok (AC) nima?", 'answers': {'a': " Tokning yo'nalishi va kuchlanishi vaqt o'tishi bilan o'zgaradi", 'b': "Tokning yo'nalishi o'zgarmaydi", 'c': " Tok faqat bir yo'nalishda oqadi", 'd': 'Tok faqat kichik kuchlanishda ishlaydi'}, 'correct': 'a'}, {'question': "O'zgarmas tok (DC) qanday ishlaydi?", 'answers': {'a': "Tokning yo'nalishi va kuchlanishi o'zgaradi", 'b': "Tokning yo'nalishi doimiy bo'lib, faqat bitta yo'nalishda oqadi", 'c': 'Tok faqat katta kuchlanishda ishlaydi', 'd': 'Tok faqat kichik kuchlanishda ishlaydi'}, 'correct': 'b'}, {'question': "O'zgaruvchan tokning chastotasi qanday o'lchanadi?", 'answers': {'a': "Vol'tlarda", 'b': 'Amperda', 'c': 'Hertzda', 'd': 'Ohmlarda'}, 'correct': 'c'}, {'question': "O'zgarmas tok va o'zgaruvchan tok orasidagi farq nima?", 'answers': {'a': " O'zgarmas tok faqat kichik kuchlanishda ishlaydi, o'zgaruvchan tok esa katta kuchlanishda ishlaydi", 'b': "O'zgarmas tokning yo'nalishi o'zgaradi, o'zgaruvchan tok esa bir xil yo'nalishda oqadi", 'c': " O'zgarmas tok bir yo'nalishda oqadi, o'zgaruvchan tok esa yo'nalishini o'zgartiradi", 'd': " O'zgarmas tok faqat yuqori kuchlanishda ishlaydi, o'zgaruvchan tok esa past kuchlanishda ishlaydi"}, 'correct': 'c'}, {'question': "Induktiv g'altak nima?", 'answers': {'a': " Tokni faqat bir yo'nalishda o'tkazadi", 'b': ' Magnit maydonini yaratish uchun ishlatiladi', 'c': ' Kuchlanishni oshiradi', 'd': ' Yoritish uchun ishlatiladi'}, 'correct': 'b'}, {'question': "Induktiv g'altakning asosiy xususiyati nima?", 'answers': {'a': " U o'zgaruvchan tokni o'zgartiradi", 'b': ' U kuchlanishni oshiradi', 'c': ' U magnit maydoni hosil qiladi', 'd': ' U tokni saqlaydi'}, 'correct': 'c'}, {'question': "Induktiv g'altakda qanday energiya saqlanadi?", 'answers': {'a': 'Harorat energiyasi', 'b': ' Magnit energiyasi', 'c': ' Elektr energiyasi', 'd': ' Kinetik energiya'}, 'correct': 'b'}, {'question': "Induktiv g'altakning qarshiligi qanday ta'sir qiladi?", 'answers': {'a': 'Qarshilikni kamaytiradi', 'b': ' Qarshilikni oshiradi', 'c': "Qarshilikni hech qanday ta'sir qilmaydi", 'd': " Qarshilikni yo'q qiladi"}, 'correct': 'b'}, {'question': "Induktiv g'altakning o'lchov birligi qanday ataladi?", 'answers': {'a': '  Ohm', 'b': ' Volt', 'c': ' Henry', 'd': 'Fara'}, 'correct': 'c'},{'question': 'Kondensator nima?', 'answers': {'a': 'Energiya saqlash uchun qurilma', 'b': "Tokni faqat bir yo'nalishda o'tkazadigan qurilma", 'c': "O'zgarmas tokni kuchaytiruvchi qurilma", 'd': 'Kuchlanishni pasaytiradigan qurilma'}, 'correct': 'a'}, {'question': 'Kondensatorning asosiy vazifasi nima?', 'answers': {'a': "Tokni o'tkazish", 'b': 'Elektr energiyasini saqlash', 'c': 'Kuchlanishni oshirish', 'd': ' Magnit maydonini yaratish'}, 'correct': 'b'}, {'question': "Kondensatorning o'lchov birligi qanday ataladi?", 'answers': {'a': ' Ohm', 'b': 'Farad', 'c': 'Henry', 'd': ' Volt'}, 'correct': 'b'}, {'question': "Kondensatorning zaryad yig'indisi qanday bog'lanadi?", 'answers': {'a': "Zaryad yig'indisi kuchlanish va qobiliyatga nisbatan proporsional", 'b': "Zaryad yig'indisi qarshilik va tokka nisbatan proporsional", 'c': "Zaryad yig'indisi faqat tokka nisbatan proporsional", 'd': "Zaryad yig'indisi faqat kuchlanishga nisbatan proporsional"}, 'correct': 'a'}, {'question': 'Kondensator qanday holatda energiya saqlaydi?', 'answers': {'a': "Faqat o'zgarmas tokda", 'b': "Faqat o'zgaruvchan tokda", 'c': "O'zgarmas yoki o'zgaruvchan tokda", 'd': 'Faqat yuqori kuchlanishda'}, 'correct': 'c'}, {'question': 'Kondensatorlar qanday usulda ulanadi?', 'answers': {'a': 'Faqat paralel ulanishda', 'b': 'Faqat seriyali ulanishda', 'c': 'Paralel yoki seriyali ulanishda', 'd': "O'zgaruvchan ulanishda"}, 'correct': 'c'}, {'question': "Kondensatorning to'liq zaryadlanishi uchun qancha vaqt kerak?", 'answers': {'a': 'Bir necha sekund', 'b': 'Bir necha millisekund', 'c': 'Bir necha daqiqa', 'd': 'Uzoq vaqt davomida'}, 'correct': 'a'}, {'question': "Kondensator va induktor o'rtasidagi farq nima?", 'answers': {'a': 'Kondensator energiyani magnit maydonda saqlaydi, induktor esa elektr maydonida saqlaydi', 'b': '  Kondensator energiyani saqlaydi, induktor esa tokni saqlaydi', 'c': "Kondensator faqat o'zgarmas tokda ishlaydi, induktor esa faqat o'zgaruvchan tokda ishlaydi", 'd': 'Kondensator faqat kichik kuchlanishda ishlaydi, induktor esa yuqori kuchlanishda ishlaydi'}, 'correct': 'b'}, {'question': "O'zgaruvchan tok (AC) va doimiy tok (DC) orasidagi asosiy farq nima?", 'answers': {'a': "O'zgaruvchan tokning yo'nalishi va kuchlanishi vaqt o'tishi bilan o'zgaradi, doimiy tokda esa bu o'zgarmaydi", 'b': "O'zgaruvchan tok faqat bir yo'nalishda oqadi, doimiy tok esa ikki yo'nalishda oqadi", 'c': "O'zgaruvchan tokning kuchlanishi doimiy bo'ladi, doimiy tokda esa bu o'zgarmaydi", 'd': "O'zgaruvchan tok faqat yuqori kuchlanishlarda ishlaydi, doimiy tok esa past kuchlanishda ishlaydi"}, 'correct': 'a'}, {'question': "O'zgaruvchan tokning chastotasi qanday belgilanadi?", 'answers': {'a': ' Volt', 'b': 'Amper', 'c': 'Hertz', 'd': 'Ohm'}, 'correct': 'c'}, {'question': 'Doimiy tokda qanday energiya saqlanadi?', 'answers': {'a': ' Magnit energiya', 'b': 'Elektr energiya', 'c': ' Kinetik energiya', 'd': 'Issiqlik energiya'}, 'correct': 'b'}]
+ // Savollarni aralashtirish funksiyasi
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    // Javob variantlarini aralashtirish
+    function shuffleAnswers(quiz) {
+        quiz.forEach(item => {
+            const answersArray = Object.entries(item.answers);
+            shuffle(answersArray);
+            item.answers = Object.fromEntries(answersArray);
+            item.correct = answersArray.find(([key, value]) => value === item.answers[item.correct])[0]; // To'g'ri javobni yangilash
+        });
+    }
+    // Savollarni aralashtiramiz
+    // shuffle(quizData);
+
+    shuffleAnswers(quizData);
+
+    const quizContainer = document.getElementById('quiz');
+    const submitButton = document.getElementById('submit');
+    const resultsContainer = document.getElementById('results');
+    const finalResultsContainer = document.getElementById('finalResults');
+    const numberPagination = document.getElementById('numberPagination');
+    const timerDisplay = document.getElementById('timer');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+
+    let totalQuestions = quizData.length;
+    const timePerQuestion = 48; // 6 soniya
+    let timeLeft = totalQuestions * timePerQuestion;
+    let currentQuestionIndex = 0;
+
+    const selectedAnswers = Array(totalQuestions).fill(null);
+
+    function startTimer() {
+        const timerInterval = setInterval(() => {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerDisplay.textContent = `Vaqt: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                alert("Vaqt tugadi!");
+                submitButton.click();
+            }
+            timeLeft--;
+        }, 1000);
+    }
+
+    function loadQuestion() {
+        const item = quizData[currentQuestionIndex];
+        quizContainer.innerHTML = `
+            <div class="question">
+                <p>${currentQuestionIndex + 1}. ${item.question}</p>
+                ${Object.keys(item.answers).map(letter => {
+            const isChecked = selectedAnswers[currentQuestionIndex] === letter ? 'checked' : '';
+            const bgColor = selectedAnswers[currentQuestionIndex] === letter ? 'lightblue' : '#ccf3ff';
+            return `
+                        <label class="answer" id="answer${letter}" style="background-color: ${bgColor};">
+                            <input type="checkbox" name="question${currentQuestionIndex}" value="${letter}" ${isChecked} onchange="updateAnswer('${letter}')">
+                           ${item.answers[letter]}
+                        </label>
+                    `;
+        }).join('')}
+            </div>
+        `;
+        updateNumberPagination();
+        updateNavigationButtons();
+    }
+
+    function updateNavigationButtons() {
+        prevButton.style.display = currentQuestionIndex === 0 ? 'none' : 'inline-block';
+        nextButton.style.display = currentQuestionIndex === totalQuestions - 1 ? 'none' : 'inline-block';
+    }
+
+    function updateAnswer(selected) {
+        selectedAnswers[currentQuestionIndex] = selected;
+        loadQuestion(); // Savolni yangilash
+        updateNumberPagination();
+    }
+
+    function updateNumberPagination() {
+        numberPagination.innerHTML = '';
+        quizData.forEach((_, index) => {
+            const button = document.createElement('button');
+            button.textContent = index + 1;
+            button.className = selectedAnswers[index] === null ? '' : selectedAnswers[index] === quizData[index].correct ? 'answered-correct' : 'answered-incorrect';
+            button.style.backgroundColor = selectedAnswers[index] === null ? 'white' : 'lightblue';
+            button.onclick = () => goToQuestion(index);
+            numberPagination.appendChild(button);
+        });
+    }
+
+    function goToQuestion(index) {
+        currentQuestionIndex = index;
+        loadQuestion();
+    }
+
+    function getResults() {
+        resultsContainer.innerHTML = '';
+        let correctCount = 0;
+        quizData.forEach((item, index) => {
+            if (selectedAnswers[index] === item.correct) {
+                correctCount++;
+                resultsContainer.innerHTML += `<div class="result">Savol ${index + 1}: <span class="correct">To'g'ri javob: ${item.answers[item.correct]}</span></div>`;
+            } else if (selectedAnswers[index] === null) {
+                resultsContainer.innerHTML += `<div class="result">Savol ${index + 1}: <span class="incorrect">Javob berilmagan! To'g'ri javob: ${item.answers[item.correct]}</span></div>`;
+            } else {
+                resultsContainer.innerHTML += `<div class="result">Savol ${index + 1}: <span class="incorrect">Noto'g'ri! To'g'ri javob: ${item.answers[item.correct]} (Siz: ${item.answers[selectedAnswers[index]]})</span></div>`;
+            }
+        });
+        finalResultsContainer.innerHTML = `<h2>Umumiy natija: ${correctCount} / ${totalQuestions}</h2>`;
+        resultsContainer.style.display = 'block';
+        finalResultsContainer.style.display = 'block';
+        updatePaginationResults();
+    }
+
+    function updatePaginationResults() {
+        numberPagination.querySelectorAll('button').forEach((button, index) => {
+            button.style.backgroundColor = selectedAnswers[index] === quizData[index].correct ? 'lightgreen' : 'lightcoral';
+        });
+    }
+
+    submitButton.addEventListener('click', getResults);
+    prevButton.addEventListener('click', () => {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            loadQuestion();
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentQuestionIndex < totalQuestions - 1) {
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+    });
+
+    loadQuestion();
+    startTimer();
+</script>
+</body>
+</html>
+    </div>
+</main>
+
+<!--
+<footer id="footer" class="mt-auto py-3 bg-light">
+    <div class="container">
+        <div class="row text-muted">
+            <div class="col-md-6 text-center text-md-start">&copy; My Company 2025</div>
+            <div class="col-md-6 text-center text-md-end">Powered by <a href="https://www.yiiframework.com/" rel="external">Yii Framework</a></div>
+        </div>
+    </div>
+</footer>
+--!>
+<div id="yii-debug-toolbar" data-url="/web/index.php?r=debug%2Fdefault%2Ftoolbar&amp;tag=6778e9963b700" data-skip-urls="[]" style="display:none" class="yii-debug-toolbar-bottom"></div><style>#yii-debug-toolbar-logo{position:fixed;right:31px;bottom:4px}@media print{.yii-debug-toolbar{display:none !important}}.yii-debug-toolbar{font:11px Verdana, Arial, sans-serif;text-align:left;width:96px;transition:width .3s ease;z-index:1000000}.yii-debug-toolbar.yii-debug-toolbar_active:not(.yii-debug-toolbar_animating) .yii-debug-toolbar__bar{overflow:visible;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.yii-debug-toolbar.yii-debug-toolbar_iframe_active:not(.yii-debug-toolbar_animating) .yii-debug-toolbar__resize-handle{display:block;height:4px;cursor:ns-resize;margin-bottom:0;z-index:1000001;position:absolute;left:0;right:0}.yii-debug-toolbar:not(.yii-debug-toolbar_active) .yii-debug-toolbar__bar,.yii-debug-toolbar.yii-debug-toolbar_animating .yii-debug-toolbar__bar{height:40px}.yii-debug-toolbar_active{width:100%}.yii-debug-toolbar_active .yii-debug-toolbar__toggle-icon{-webkit-transform:rotate(0);transform:rotate(0)}.yii-debug-toolbar_position_top{margin:0 0 20px 0;width:100%}.yii-debug-toolbar_position_bottom{position:fixed;right:0;bottom:0;margin:0}.yii-debug-toolbar__bar{position:relative;padding:0;font:11px Verdana, Arial, sans-serif;text-align:left;overflow:hidden;box-sizing:content-box;display:flex;flex-wrap:wrap;background:#fff;background:-moz-linear-gradient(top, #fff 0%, #f7f7f7 100%);background:-webkit-linear-gradient(top, #fff 0%, #f7f7f7 100%);background:linear-gradient(to bottom, #fff 0%, #f7f7f7 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f7f7f7', GradientType=0);border:1px solid rgba(0,0,0,0.11);direction:ltr}.yii-debug-toolbar__bar::after{content:'';display:table;clear:both}.yii-debug-toolbar__view{height:0;overflow:hidden;background:white}.yii-debug-toolbar__view iframe{margin:0;padding:10px 0 0;height:100%;width:100%;border:0}.yii-debug-toolbar_iframe_active .yii-debug-toolbar__view{height:100%}.yii-debug-toolbar_iframe_active .yii-debug-toolbar__toggle-icon{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.yii-debug-toolbar_iframe_active .yii-debug-toolbar__external{display:block}.yii-debug-toolbar_iframe_animating .yii-debug-toolbar__view{transition:height .3s ease}.yii-debug-toolbar__block{margin:0;border-right:1px solid rgba(0,0,0,0.11);border-bottom:1px solid rgba(0,0,0,0.11);padding:4px 8px;line-height:32px;white-space:nowrap}@media (max-width: 767.98px){.yii-debug-toolbar__block{flex-grow:1;text-align:center}}.yii-debug-toolbar__block a{display:inline-block;text-decoration:none;color:black}.yii-debug-toolbar__block img{vertical-align:middle;width:30px;height:30px}.yii-debug-toolbar__block_active,.yii-debug-toolbar__ajax:hover{background:#f7f7f7;background:-moz-linear-gradient(top, #f7f7f7 0%, #e0e0e0 100%);background:-webkit-linear-gradient(top, #f7f7f7 0%, #e0e0e0 100%);background:linear-gradient(to bottom, #f7f7f7 0%, #e0e0e0 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f7f7', endColorstr='#e0e0e0', GradientType=0)}.yii-debug-toolbar__label{display:inline-block;padding:2px 4px;font-size:12px;font-weight:normal;line-height:14px;white-space:nowrap;vertical-align:middle;max-width:100px;overflow-x:hidden;text-overflow:ellipsis;color:#ffffff;text-shadow:0 -1px 0 rgba(0,0,0,0.25);background-color:#737373;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}.yii-debug-toolbar__label:empty{display:none}a.yii-debug-toolbar__label:hover,a.yii-debug-toolbar__label:focus{color:#ffffff;text-decoration:none;cursor:pointer}.yii-debug-toolbar__label_important,.yii-debug-toolbar__label_error{background-color:#b94a48}.yii-debug-toolbar__label_important[href]{background-color:#953b39}.yii-debug-toolbar__label_warning,.yii-debug-toolbar__badge_warning{background-color:#f89406}.yii-debug-toolbar__label_warning[href]{background-color:#c67605}.yii-debug-toolbar__label_success{background-color:#217822}.yii-debug-toolbar__label_success[href]{background-color:#356635}.yii-debug-toolbar__label_info{background-color:#0b72b8}.yii-debug-toolbar__label_info[href]{background-color:#2d6987}.yii-debug-toolbar__label_inverse,.yii-debug-toolbar__badge_inverse{background-color:#333333}.yii-debug-toolbar__label_inverse[href],.yii-debug-toolbar__badge_inverse[href]{background-color:#1a1a1a}.yii-debug-toolbar__title{background:#f7f7f7;background:-moz-linear-gradient(top, #f7f7f7 0%, #e0e0e0 100%);background:-webkit-linear-gradient(top, #f7f7f7 0%, #e0e0e0 100%);background:linear-gradient(to bottom, #f7f7f7 0%, #e0e0e0 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f7f7', endColorstr='#e0e0e0', GradientType=0)}.yii-debug-toolbar__block_last{width:80px;height:40px;float:left}.yii-debug-toolbar__toggle,.yii-debug-toolbar__external{cursor:pointer;position:absolute;width:30px;height:30px;font-size:25px;font-weight:100;line-height:28px;color:#ffffff;text-align:center;opacity:0.5;filter:alpha(opacity=50);transition:opacity .3s ease}.yii-debug-toolbar__toggle:hover,.yii-debug-toolbar__toggle:focus,.yii-debug-toolbar__external:hover,.yii-debug-toolbar__external:focus{color:#ffffff;text-decoration:none;opacity:0.9;filter:alpha(opacity=90)}.yii-debug-toolbar__toggle-icon,.yii-debug-toolbar__external-icon{display:inline-block;background-position:50% 50%;background-repeat:no-repeat}.yii-debug-toolbar__toggle{right:10px;bottom:4px}.yii-debug-toolbar__toggle-icon{padding:7px 0;width:10px;height:16px;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDUwIDUwIj48cGF0aCBmaWxsPSIjNDQ0IiBkPSJNMTUuNTYzIDQwLjgzNmEuOTk3Ljk5NyAwIDAgMCAxLjQxNCAwbDE1LTE1YTEgMSAwIDAgMCAwLTEuNDE0bC0xNS0xNWExIDEgMCAwIDAtMS40MTQgMS40MTRMMjkuODU2IDI1LjEzIDE1LjU2MyAzOS40MmExIDEgMCAwIDAgMCAxLjQxNHoiLz48L3N2Zz4=");transition:-webkit-transform .3s ease-out;transition:transform .3s ease-out;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.yii-debug-toolbar__external{display:none;right:50px;bottom:4px}.yii-debug-toolbar__external-icon{padding:8px 0;width:14px;height:14px;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSIxNSIgdmlld0JveD0iMCAwIDUwIDUwIj48cGF0aCBmaWxsPSIjNDQ0IiBkPSJNMzkuNjQyIDkuNzIyYTEuMDEgMS4wMSAwIDAgMC0uMzgyLS4wNzdIMjguMTAzYTEgMSAwIDAgMCAwIDJoOC43NDNMMjEuNyAyNi43OWExIDEgMCAwIDAgMS40MTQgMS40MTVMMzguMjYgMTMuMDZ2OC43NDNhMSAxIDAgMCAwIDIgMFYxMC42NDZhMS4wMDUgMS4wMDUgMCAwIDAtLjYxOC0uOTI0eiIvPjxwYXRoIGQ9Ik0zOS4yNiAyNy45ODVhMSAxIDAgMCAwLTEgMXYxMC42NmgtMjh2LTI4aDEwLjY4M2ExIDEgMCAwIDAgMC0ySDkuMjZhMSAxIDAgMCAwLTEgMXYzMGExIDEgMCAwIDAgMSAxaDMwYTEgMSAwIDAgMCAxLTF2LTExLjY2YTEgMSAwIDAgMC0xLTF6Ii8+PC9zdmc+")}.yii-debug-toolbar__switch-icon{margin-left:10px;padding:5px 10px;width:18px;height:18px;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDUwIDUwIiB2ZXJzaW9uPSIxLjEiPjxwYXRoIGQ9Im00MS4xIDIzYy0wLjYgMC0xIDAuNC0xIDF2MTAuN2wtMjUuNi0wLjFjMCAwIDAtMiAwLTIuOCAwLTAuOC0wLjctMS0xLTAuNmwtMy41IDMuNWMtMC42IDAuNi0wLjYgMS4zIDAgMmwzLjQgMy40YzAuNCAwLjQgMS4xIDAuMiAxLTAuNmwwLTIuOWMwIDAgMjAuOCAwLjEgMjYuNiAwIDAuNiAwIDEtMC40IDEtMXYtMTEuN2MwLTAuNi0wLjQtMS0xLTF6TTkgMjYuOSA5IDI2LjkgOSAyNi45IDkgMjYuOSIvPjxwYXRoIGQ9Im05IDI2LjljMC42IDAgMS0wLjQgMS0xdi0xMC43bDI1LjYgMC4xYzAgMCAwIDIgMCAyLjggMCAwLjggMC43IDEgMSAwLjZsMy41LTMuNWMwLjYtMC42IDAuNi0xLjMgMC0ybC0zLjQtMy40Yy0wLjQtMC40LTEuMS0wLjItMSAwLjZsMCAyLjljMCAwLTIwLjgtMC4xLTI2LjYgMC0wLjYgMC0xIDAuNC0xIDF2MTEuN2MwIDAuNiAwLjQgMSAxIDF6Ii8+PC9zdmc+")}.yii-debug-toolbar__ajax{position:relative}.yii-debug-toolbar__ajax:hover .yii-debug-toolbar__ajax_info,.yii-debug-toolbar__ajax:focus .yii-debug-toolbar__ajax_info{visibility:visible}.yii-debug-toolbar__ajax a{color:#337ab7}.yii-debug-toolbar__ajax table{width:100%;table-layout:auto;border-spacing:0;border-collapse:collapse}.yii-debug-toolbar__ajax table td{padding:4px;font-size:12px;line-height:normal;vertical-align:top;border-top:1px solid #ddd}.yii-debug-toolbar__ajax table th{padding:4px;font-size:11px;line-height:normal;vertical-align:bottom;border-bottom:2px solid #ddd}.yii-debug-toolbar__ajax_info{visibility:hidden;transition:visibility .2s linear;background-color:white;box-shadow:inset 0 -10px 10px -10px #e1e1e1;position:absolute;bottom:40px;left:-1px;padding:10px;max-width:480px;max-height:480px;word-wrap:break-word;overflow:hidden;overflow-y:auto;box-sizing:border-box;border:1px solid rgba(0,0,0,0.11);z-index:1000001}.yii-debug-toolbar__ajax_request_status{color:white;padding:2px 5px}.yii-debug-toolbar__ajax_request_url{max-width:170px;overflow:hidden;text-overflow:ellipsis}
+</style><script>(function () {
+    'use strict';
+
+    var findToolbar = function () {
+            return document.querySelector('#yii-debug-toolbar');
+        },
+        ajax = function (url, settings) {
+            var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            settings = settings || {};
+            xhr.open(settings.method || 'GET', url, true);
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.setRequestHeader('Accept', 'text/html');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200 && settings.success) {
+                        settings.success(xhr);
+                    } else if (xhr.status !== 200 && settings.error) {
+                        settings.error(xhr);
+                    }
+                }
+            };
+            xhr.send(settings.data || '');
+        },
+        url,
+        div,
+        toolbarEl = findToolbar(),
+        toolbarAnimatingClass = 'yii-debug-toolbar_animating',
+        barSelector = '.yii-debug-toolbar__bar',
+        viewSelector = '.yii-debug-toolbar__view',
+        blockSelector = '.yii-debug-toolbar__block',
+        toggleSelector = '.yii-debug-toolbar__toggle',
+        externalSelector = '.yii-debug-toolbar__external',
+
+        CACHE_KEY = 'yii-debug-toolbar',
+        ACTIVE_STATE = 'active',
+
+        animationTime = 300,
+
+        activeClass = 'yii-debug-toolbar_active',
+        iframeActiveClass = 'yii-debug-toolbar_iframe_active',
+        iframeAnimatingClass = 'yii-debug-toolbar_iframe_animating',
+        titleClass = 'yii-debug-toolbar__title',
+        blockClass = 'yii-debug-toolbar__block',
+        ignoreClickClass = 'yii-debug-toolbar__ignore_click',
+        blockActiveClass = 'yii-debug-toolbar__block_active',
+        requestStack = [];
+
+    if (toolbarEl) {
+        url = toolbarEl.getAttribute('data-url');
+
+        ajax(url, {
+            success: function (xhr) {
+                div = document.createElement('div');
+                div.innerHTML = xhr.responseText;
+
+                toolbarEl.parentNode && toolbarEl.parentNode.replaceChild(div, toolbarEl);
+
+                showToolbar(findToolbar());
+
+                var event;
+                if (typeof(Event) === 'function') {
+                    event = new Event('yii.debug.toolbar_attached', {'bubbles': true});
+                } else {
+                    event = document.createEvent('Event');
+                    event.initEvent('yii.debug.toolbar_attached', true, true);
+                }
+
+                div.dispatchEvent(event);
+            },
+            error: function (xhr) {
+                toolbarEl.innerText = xhr.responseText;
+            }
+        });
+    }
+
+    function showToolbar(toolbarEl) {
+        var barEl = toolbarEl.querySelector(barSelector),
+            viewEl = toolbarEl.querySelector(viewSelector),
+            toggleEl = toolbarEl.querySelector(toggleSelector),
+            externalEl = toolbarEl.querySelector(externalSelector),
+            blockEls = barEl.querySelectorAll(blockSelector),
+            blockLinksEls = document.querySelectorAll(blockSelector + ':not(.' + titleClass + ') a'),
+            iframeEl = viewEl.querySelector('iframe'),
+            iframeHeight = function () {
+                return (window.innerHeight * (toolbarEl.dataset.height / 100) - barEl.clientHeight) + 'px';
+            },
+            isIframeActive = function () {
+                return toolbarEl.classList.contains(iframeActiveClass);
+            },
+            resizeIframe = function(mouse) {
+                var availableHeight = window.innerHeight - barEl.clientHeight;
+                viewEl.style.height = Math.min(availableHeight, availableHeight - mouse.y) + "px";
+            },
+            showIframe = function (href) {
+                toolbarEl.classList.add(iframeAnimatingClass);
+                toolbarEl.classList.add(iframeActiveClass);
+
+                iframeEl.src = externalEl.href = href;
+                iframeEl.removeAttribute('tabindex');
+
+                viewEl.style.height = iframeHeight();
+                setTimeout(function () {
+                    toolbarEl.classList.remove(iframeAnimatingClass);
+                }, animationTime);
+            },
+            hideIframe = function () {
+                toolbarEl.classList.add(iframeAnimatingClass);
+                toolbarEl.classList.remove(iframeActiveClass);
+                iframeEl.setAttribute("tabindex", "-1");
+                removeActiveBlocksCls();
+
+                externalEl.href = '#';
+                viewEl.style.height = '';
+                setTimeout(function () {
+                    toolbarEl.classList.remove(iframeAnimatingClass);
+                }, animationTime);
+            },
+            removeActiveBlocksCls = function () {
+                [].forEach.call(blockEls, function (el) {
+                    el.classList.remove(blockActiveClass);
+                });
+            },
+            toggleToolbarClass = function (className) {
+                toolbarEl.classList.add(toolbarAnimatingClass);
+                if (toolbarEl.classList.contains(className)) {
+                    toolbarEl.classList.remove(className);
+                    [].forEach.call(blockLinksEls, function (el) {
+                        el.setAttribute('tabindex', "-1");
+                    });
+                } else {
+                    [].forEach.call(blockLinksEls, function (el) {
+                        el.removeAttribute('tabindex');
+                    });
+                    toolbarEl.classList.add(className);
+                }
+                setTimeout(function () {
+                    toolbarEl.classList.remove(toolbarAnimatingClass);
+                }, animationTime);
+            },
+            toggleStorageState = function (key, value) {
+                if (window.localStorage) {
+                    var item = localStorage.getItem(key);
+
+                    if (item) {
+                        localStorage.removeItem(key);
+                    } else {
+                        localStorage.setItem(key, value);
+                    }
+                }
+            },
+            restoreStorageState = function (key) {
+                if (window.localStorage) {
+                    return localStorage.getItem(key);
+                }
+            },
+            togglePosition = function () {
+                if (isIframeActive()) {
+                    hideIframe();
+                } else {
+                    toggleToolbarClass(activeClass);
+                    toggleStorageState(CACHE_KEY, ACTIVE_STATE);
+                }
+            };
+
+        if (restoreStorageState(CACHE_KEY) === ACTIVE_STATE) {
+            var transition = toolbarEl.style.transition;
+            toolbarEl.style.transition = 'none';
+            toolbarEl.classList.add(activeClass);
+            setTimeout(function () {
+                toolbarEl.style.transition = transition;
+            }, animationTime);
+        } else {
+            [].forEach.call(blockLinksEls, function (el) {
+                el.setAttribute('tabindex', "-1");
+            });
+        }
+
+        toolbarEl.style.display = 'block';
+
+        window.onresize = function () {
+            if (toolbarEl.classList.contains(iframeActiveClass)) {
+                viewEl.style.height = iframeHeight();
+            }
+        };
+
+        toolbarEl.addEventListener("mousedown", function(e) {
+            if (isIframeActive() && (e.y - toolbarEl.offsetTop < 4 /* 4px click zone */)) {
+                document.addEventListener("mousemove", resizeIframe, false);
+            }
+        }, false);
+
+        document.addEventListener("mouseup", function(){
+            if (isIframeActive()) {
+                document.removeEventListener("mousemove", resizeIframe, false);
+            }
+        }, false);
+
+        barEl.onclick = function (e) {
+            var target = e.target,
+                block = findAncestor(target, blockClass);
+
+            if (block
+                && !block.classList.contains(titleClass)
+                && !block.classList.contains(ignoreClickClass)
+                && e.which !== 2 && !e.ctrlKey // not mouse wheel and not ctrl+click
+            ) {
+                while (target !== this) {
+                    if (target.href) {
+                        removeActiveBlocksCls();
+                        block.classList.add(blockActiveClass);
+                        showIframe(target.href);
+                    }
+                    target = target.parentNode;
+                }
+
+                e.preventDefault();
+            }
+        };
+
+        toggleEl.onclick = togglePosition;
+    }
+
+    function findAncestor(el, cls) {
+        while ((el = el.parentElement) && !el.classList.contains(cls)) ;
+        return el;
+    }
+
+    function renderAjaxRequests() {
+        var requestCounter = document.getElementsByClassName('yii-debug-toolbar__ajax_counter');
+        if (!requestCounter.length) {
+            return;
+        }
+        var ajaxToolbarPanel = document.querySelector('.yii-debug-toolbar__ajax');
+        var tbodies = document.getElementsByClassName('yii-debug-toolbar__ajax_requests');
+        var state = 'ok';
+        if (tbodies.length) {
+            var tbody = tbodies[0];
+            var rows = document.createDocumentFragment();
+            if (requestStack.length) {
+                var firstItem = requestStack.length > 20 ? requestStack.length - 20 : 0;
+                for (var i = firstItem; i < requestStack.length; i++) {
+                    var request = requestStack[i];
+                    var row = document.createElement('tr');
+                    rows.appendChild(row);
+
+                    var methodCell = document.createElement('td');
+                    methodCell.innerHTML = request.method;
+                    row.appendChild(methodCell);
+
+                    var statusCodeCell = document.createElement('td');
+                    var statusCode = document.createElement('span');
+                    if (request.statusCode < 300) {
+                        statusCode.setAttribute('class', 'yii-debug-toolbar__ajax_request_status yii-debug-toolbar__label_success');
+                    } else if (request.statusCode < 400) {
+                        statusCode.setAttribute('class', 'yii-debug-toolbar__ajax_request_status yii-debug-toolbar__label_warning');
+                    } else {
+                        statusCode.setAttribute('class', 'yii-debug-toolbar__ajax_request_status yii-debug-toolbar__label_error');
+                    }
+                    statusCode.textContent = request.statusCode || '-';
+                    statusCodeCell.appendChild(statusCode);
+                    row.appendChild(statusCodeCell);
+
+                    var pathCell = document.createElement('td');
+                    pathCell.className = 'yii-debug-toolbar__ajax_request_url';
+                    pathCell.innerHTML = request.url;
+                    pathCell.setAttribute('title', request.url);
+                    row.appendChild(pathCell);
+
+                    var durationCell = document.createElement('td');
+                    durationCell.className = 'yii-debug-toolbar__ajax_request_duration';
+                    if (request.duration) {
+                        durationCell.innerText = request.duration + " ms";
+                    } else {
+                        durationCell.innerText = '-';
+                    }
+                    row.appendChild(durationCell);
+                    row.appendChild(document.createTextNode(' '));
+
+                    var profilerCell = document.createElement('td');
+                    if (request.profilerUrl) {
+                        var profilerLink = document.createElement('a');
+                        profilerLink.setAttribute('href', request.profilerUrl);
+                        profilerLink.innerText = request.profile;
+                        profilerCell.appendChild(profilerLink);
+                    } else {
+                        profilerCell.innerText = 'n/a';
+                    }
+                    row.appendChild(profilerCell);
+
+                    if (request.error) {
+                        if (state !== "loading" && i > requestStack.length - 4) {
+                            state = 'error';
+                        }
+                    } else if (request.loading) {
+                        state = 'loading'
+                    }
+                    row.className = 'yii-debug-toolbar__ajax_request';
+                }
+                while (tbody.firstChild) {
+                    tbody.removeChild(tbody.firstChild);
+                }
+                tbody.appendChild(rows);
+            }
+            ajaxToolbarPanel.style.display = 'block';
+        }
+        requestCounter[0].innerText = requestStack.length;
+        var className = 'yii-debug-toolbar__label yii-debug-toolbar__ajax_counter';
+        if (state === 'ok') {
+            className += ' yii-debug-toolbar__label_success';
+        } else if (state === 'error') {
+            className += ' yii-debug-toolbar__label_error';
+        }
+        requestCounter[0].className = className;
+    }
+
+    /**
+     * Should AJAX request to be logged in debug panel
+     *
+     * @param requestUrl
+     * @returns {boolean}
+     */
+    function shouldTrackRequest(requestUrl) {
+        if (!toolbarEl) {
+            return false;
+        }
+        var a = document.createElement('a');
+        a.href = requestUrl;
+        var skipAjaxRequestUrls = JSON.parse(toolbarEl.getAttribute('data-skip-urls'));
+        if (Array.isArray(skipAjaxRequestUrls) && skipAjaxRequestUrls.length && skipAjaxRequestUrls.includes(requestUrl)) {
+            return false;
+        }
+        return a.host === location.host;
+    }
+
+    var proxied = XMLHttpRequest.prototype.open;
+
+    XMLHttpRequest.prototype.open = function (method, url, async, user, pass) {
+        var self = this;
+
+        if (shouldTrackRequest(url)) {
+            var stackElement = {
+                loading: true,
+                error: false,
+                url: url,
+                method: method,
+                start: new Date()
+            };
+            requestStack.push(stackElement);
+            this.addEventListener('readystatechange', function () {
+                if (self.readyState === 4) {
+                    stackElement.duration = self.getResponseHeader('X-Debug-Duration') || new Date() - stackElement.start;
+                    stackElement.loading = false;
+                    stackElement.statusCode = self.status;
+                    stackElement.error = self.status < 200 || self.status >= 400;
+                    stackElement.profile = self.getResponseHeader('X-Debug-Tag');
+                    stackElement.profilerUrl = self.getResponseHeader('X-Debug-Link');
+                    renderAjaxRequests();
+                }
+            }, false);
+            renderAjaxRequests();
+        }
+        proxied.apply(this, Array.prototype.slice.call(arguments));
+    };
+
+    // catch fetch AJAX requests
+    if (window.fetch) {
+        var originalFetch = window.fetch;
+
+        window.fetch = function (input, init) {
+            var method;
+            var url;
+            if (typeof input === 'string') {
+                method = (init && init.method) || 'GET';
+                url = input;
+            } else if (window.URL && input instanceof URL) { // fix https://github.com/yiisoft/yii2-debug/issues/296
+                method = (init && init.method) || 'GET';
+                url = input.href;
+            } else if (window.Request && input instanceof Request) {
+                method = input.method;
+                url = input.url;
+            }
+            var promise = originalFetch(input, init);
+
+            if (shouldTrackRequest(url)) {
+                var stackElement = {
+                    loading: true,
+                    error: false,
+                    url: url,
+                    method: method,
+                    start: new Date()
+                };
+                requestStack.push(stackElement);
+                promise.then(function (response) {
+                    stackElement.duration = response.headers.get('X-Debug-Duration') || new Date() - stackElement.start;
+                    stackElement.loading = false;
+                    stackElement.statusCode = response.status;
+                    stackElement.error = response.status < 200 || response.status >= 400;
+                    stackElement.profile = response.headers.get('X-Debug-Tag');
+                    stackElement.profilerUrl = response.headers.get('X-Debug-Link');
+                    renderAjaxRequests();
+
+                    return response;
+                }).catch(function (error) {
+                    stackElement.loading = false;
+                    stackElement.error = true;
+                    renderAjaxRequests();
+
+                    throw error;
+                });
+                renderAjaxRequests();
+            }
+
+            return promise;
+        };
+    }
+
+})();
+</script><script src="/web/assets/2b64104f/jquery.js"></script>
+<script src="/web/assets/4329e22e/yii.js"></script>
+<script src="/web/js/script.js"></script>
+<script src="/web/assets/9d79efd8/dist/js/bootstrap.bundle.js"></script></body>
+</html>
