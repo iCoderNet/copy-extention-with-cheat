@@ -122,9 +122,1562 @@
 <script>
     
 
-    const quizData=[{'question': "Elektr toki qanday o'lchanadi?", 'answers': {'a': 'Amper', 'b': 'Volt', 'c': 'Om', 'd': 'Gerts'}, 'correct': 'a'}, {'question': 'Rezistorning asosiy vazifasi nima?', 'answers': {'a': 'Tokni kuchaytirish', 'b': "Kuchlanishni o'lchash", 'c': "Qarshilik ko'rsatish", 'd': 'D) Signallarni kuchaytirish'}, 'correct': 'c'}, {'question': 'Elektron sxemada diodning asosiy vazifasi nima?', 'answers': {'a': 'Tokni kuchaytirish', 'b': "Tokni bir yo'nalishda o'tkazish", 'c': "Kuchlanishni o'lchash", 'd': 'Signallarni pasaytirish'}, 'correct': 'b'}, {'question': 'Transistorlarning asosiy turlari qaysilar?', 'answers': {'a': 'BJT va FET', 'b': 'LED va LCD', 'c': 'Diode va Triode', 'd': 'Resistor va Kondensator'}, 'correct': 'a'}, {'question': 'Kondensatorning asosiy funksiyasi nima?', 'answers': {'a': "Tokni o'lchash", 'b': 'Energiyani saqlash', 'c': 'Tokni kuchaytirish', 'd': "Qarshilik ko'rsatish"}, 'correct': 'b'}, {'question': 'Elektr toki birligi qanday?', 'answers': {'a': 'Om', 'b': 'Volt', 'c': 'Amper', 'd': 'Vat'}, 'correct': 'c'}, {'question': "Yarim o'tkazgich materialiga misol bo'la oladigan element qaysi?", 'answers': {'a': 'Kumush', 'b': 'Silikon', 'c': 'Mis', 'd': 'Qalay'}, 'correct': 'b'}, {'question': 'Analog signal nima bilan farq qiladi?', 'answers': {'a': 'Raqamli signaldan uzluksizligi bilan', 'b': "Faqat 0 va 1 qiymatlari bo'lishi bilan", 'c': 'Doimiy kuchlanish bilan', 'd': "Tok yo'nalishi bilan"}, 'correct': 'a'}, {'question': 'Diqqat sxema uchun mos keladigan tok manbai qaysi?', 'answers': {'a': 'Doimiy tok (DC)', 'b': "O'zgaruvchan tok (AC)", 'c': 'Ikkalasi mos keladi', 'd': 'Faqat yuqori kuchlanishli tok'}, 'correct': 'c'}, {'question': 'Om qarshilikni qanday ifodalaydi?', 'answers': {'a': "Kuchlanishni to'g'irlash", 'b': "Elektr toki o'tkazuvchanligini pasaytirish", 'c': 'Kuchlanishni oshirish', 'd': "Signallarni o'zgartirish"}, 'correct': 'b'}, {'question': 'LED qisqartmasi nimani anglatadi?', 'answers': {'a': 'Light Emitting Diode', 'b': 'Linear Energy Device', 'c': 'Low Energy Device', 'd': 'Light Energy Diode'}, 'correct': 'a'}, {'question': 'Induktor qanday komponent?', 'answers': {'a': 'Energiyani saqlaydi va elektromagnit maydon hosil qiladi', 'b': 'Tokni kuchaytiradi', 'c': "Signalni o'zgartiradi", 'd': 'Elektrni saqlaydi'}, 'correct': 'a'}, {'question': "Kuchlanish o'lchov birligi nima?", 'answers': {'a': 'Om', 'b': 'Volt', 'c': 'Vat', 'd': 'Gerts'}, 'correct': 'b'}, {'question': "Elektron sxemada uzilish sodir bo'lganda, qanday komponent muammo bartaraf etishda yordam beradi?", 'answers': {'a': 'Rezistor', 'b': "Sug'urta", 'c': 'Kondensator', 'd': 'Transformator'}, 'correct': 'b'}, {'question': 'Rezistorning rang kodlari nima uchun ishlatiladi?', 'answers': {'a': "Kondensator sig'imini aniqlash uchun", 'b': 'Qarshilik qiymatini belgilash uchun', 'c': 'Kuchlanishni aniqlash uchun', 'd': 'Faqat estetik maqsadda'}, 'correct': 'b'}, {'question': 'Elektr sxemada diodlar qaysi rolni bajaradi?', 'answers': {'a': 'Tokni qayta ishlash', 'b': "Tokni bir tomonlama o'tkazish", 'c': 'Signalni kuchaytirish', 'd': 'Tokni kamaytirish'}, 'correct': 'b'}, {'question': 'Bir fazali AC kuchlanish chastotasi Oâ€˜zbekistonda necha gerts?', 'answers': {'a': '50 Gerts', 'b': '60 Gerts', 'c': '120 Gerts', 'd': '75 Gerts'}, 'correct': 'a'}, {'question': 'Elektron sxemada tranzistorning vazifasi nima?', 'answers': {'a': "Tokni bir yo'nalishda o'tkazish", 'b': 'Kuchlanishni kamaytirish', 'c': 'Tokni boshqarish', 'd': 'Signalni kuchaytirish'}, 'correct': 'c'}, {'question': "O'zgaruvchan tok (AC) va doimiy tok (DC) orasidagi farq nima?", 'answers': {'a': 'AC faqat elektr qurilmalari uchun ishlatiladi, DC esa faqat motorlar uchun', 'b': "AC kuchlanishi o'zgarmaydi, DC esa o'zgaradi", 'c': "AC kuchlanishi o'zgaradi, DC esa o'zgarmaydi", 'd': 'Ikkalasi ham bir xil ishlatiladi'}, 'correct': 'c'}, {'question': 'Kondensatorlarning qanday xususiyati mavjud?', 'answers': {'a': "Ular energiyani to'playdi va zaryadni saqlaydi", 'b': "Ular faqat tokni yo'naltiradi", 'c': 'Ular faqat kuchlanishni oshiradi', 'd': 'Ular signalni kuchaytiradi'}, 'correct': 'a'}, {'question': 'Elektr sxemada induktor nima uchun ishlatiladi?', 'answers': {'a': 'Tokni pasaytirish', 'b': 'Kuchlanishni oshirish', 'c': 'Elektr maydon hosil qilish', 'd': 'Energiya saqlash'}, 'correct': 'c'}, {'question': "Qaysi qurilma bir vaqtning o'zida signalni ham kuchaytiradi, ham yo'naltiradi?", 'answers': {'a': 'Diod', 'b': 'Tranzistor', 'c': 'Kondensator', 'd': 'Induktor'}, 'correct': 'b'}, {'question': 'Elektr sxemada transformator qanday vazifani bajaradi?', 'answers': {'a': 'Tokni kuchaytirish', 'b': "Kuchlanishni o'zgartirish", 'c': 'Signalni kuchaytirish', 'd': 'Energiya saqlash'}, 'correct': 'b'}, {'question': 'Diqqat sxemalarida rezistorning vazifasi nima?', 'answers': {'a': 'Tokni oshirish', 'b': 'Tokni cheklash', 'c': 'Signalni kuchaytirish', 'd': "Energiya to'plash"}, 'correct': 'b'}, {'question': 'Diodning asosiy xususiyati nima?', 'answers': {'a': "Tokni har ikki yo'nalishda o'tkazish", 'b': "Tokni faqat bir yo'nalishda o'tkazish", 'c': 'Signalni kuchaytirish', 'd': "Kuchlanishni o'zgartirish"}, 'correct': 'b'}, {'question': 'Elektron sxemalarda "GND" nima?', 'answers': {'a': 'Tokni kuchaytiruvchi', 'b': 'Elektron komponent', 'c': "Yerdagi elektr o'lchov nuqtasi", 'd': 'Elektron energiya manbai'}, 'correct': 'c'}, {'question': 'Resistorlar qanday materiallardan tayyorlanadi?', 'answers': {'a': 'Yengil plastik', 'b': 'Metall va qarshilik materiallari', 'c': 'Keramika', 'd': 'Kam quvvatli materiallar'}, 'correct': 'b'}, {'question': "Elektr sxemada kondensatorlar va rezistorlar o'zaro qanday ulanadi?", 'answers': {'a': "To'g'ridan-to'g'ri parallel", 'b': 'Faol parallel', 'c': 'Seriya ulanishda', 'd': "Hech qanday aloqasi yo'q"}, 'correct': 'c'}, {'question': "Diqqat sxemalarida tranzistorlar ko'pincha qanday maqsadlar uchun ishlatiladi?", 'answers': {'a': 'Tokni kuchaytirish', 'b': "Signallarni to'xtatish", 'c': "Kuchlanishni o'zgartirish", 'd': 'Tokni filtrlash'}, 'correct': 'a'}, {'question': 'LED-lar qanday xususiyatga ega?', 'answers': {'a': 'Faqat qizil rangda ishlaydi', 'b': 'Kam energiya sarflaydi', 'c': 'Yaltiroq effekt yaratmaydi', 'd': "Tokni faqat yuqori kuchlanishda o'tkazadi"}, 'correct': 'b'}, {'question': "Elektron sxemada uzilish bo'lsa, qaysi qurilma tokni qayta tiklashga yordam beradi?", 'answers': {'a': 'Diod', 'b': "Sug'urta", 'c': 'Rezistor', 'd': 'Kondensator'}, 'correct': 'b'}, {'question': "Bir fazali o'zgaruvchan tok (AC) qaysi xususiyatga ega?", 'answers': {'a': "Tok bir tomonlama o'tadi", 'b': "Kuchlanish doimiy bo'ladi", 'c': "Tok va kuchlanish doimiy ravishda o'zgaradi", 'd': 'Tok faqat past kuchlanishda ishlaydi'}, 'correct': 'c'}, {'question': "Bir fazali o'zgaruvchan tokda faza bilan to'qnashuv nima?", 'answers': {'a': "Kuchlanishning yo'qolishi", 'b': "Tokning yo'qolishi", 'c': "Tok va kuchlanishning to'g'ri moslashishi", 'd': 'Kuchlanish va tokning orasidagi burchakli farq'}, 'correct': 'd'}, {'question': "Elektron sxemada kondensatorlarning to'liq zaryadi qanday sodir bo'ladi?", 'answers': {'a': "Tokni to'liq o'zgartirish orqali", 'b': "Kuchlanishning o'zgarishi orqali", 'c': "Zaryadning to'liq saqlanishi orqali", 'd': 'Energiyaning yutilishi orqali'}, 'correct': 'c'}, {'question': 'Elektron sxemalarda quvvatni qanday hisoblash mumkin?', 'answers': {'a': "Tok va kuchlanishning ko'paytmasi orqali", 'b': 'Tok va kuchlanishning ayirmasi orqali', 'c': 'Signalning chastotasi orqali', 'd': 'Energiya miqdori orqali'}, 'correct': 'a'}, {'question': 'AC va DC toklarining farqi nima?', 'answers': {'a': "AC faqat ikkita yo'nalishdan birida o'tadi, DC esa doimiy yo'nalishda o'tadi", 'b': "AC kuchlanish doimiy, DC esa o'zgaruvchan", 'c': "AC va DC orasida hech qanday farq yo'q", 'd': "AC o'zgaruvchan kuchlanishga ega, DC esa doimiy kuchlanishga ega"}, 'correct': 'd'}, {'question': "Elektr sxemalarda kondensatorning kuchlanishi qanday o'zgaradi?", 'answers': {'a': "U doimiy ravishda o'zgaradi", 'b': "U o'zgarishlarni o'z ichiga olmaydi", 'c': "U boshlang'ich kuchlanishga to'g'ri keladi", 'd': 'U zaryadni saqlab qoladi'}, 'correct': 'a'}, {'question': 'Transistorning uchta asosiy terminali qaysilar?', 'answers': {'a': 'Kollektyor, baza, emitor', 'b': 'Anod, katod, baza', 'c': 'Anod, emitor, kollektor', 'd': 'Baza, tok, uzluksizlik'}, 'correct': 'a'}, {'question': 'Induktorlarning asosiy funktsiyasi nima?', 'answers': {'a': 'Tokni kuchaytirish', 'b': 'Tokni cheklash', 'c': 'Magnit maydon hosil qilish', 'd': "Tokni o'lchash"}, 'correct': 'c'}, {'question': "Diodning yonish kuchlanishiga nima ta'sir qiladi?", 'answers': {'a': 'Diodning rangi', 'b': "Diodning o'lchami", 'c': 'Kuchlanish va tok', 'd': "Qonuniy o'lchovlar"}, 'correct': 'c'}, {'question': 'Elektron sxemalarda, kondensatorlarning turlari qaysilar?', 'answers': {'a': 'Suyuqlik va gaz', 'b': 'Keramika va elektrolit', 'c': 'Alimniy va plastik', 'd': 'Elektromagnit va gaz'}, 'correct': 'b'}, {'question': "Yarim o'tkazgich qanday materiallardan tashkil topadi?", 'answers': {'a': 'Mis va alÃ¼miniy', 'b': 'Silikon va germanium', 'c': 'Kumush va mis', 'd': 'Temir va qotishmalar'}, 'correct': 'b'}, {'question': 'Tranzistorning uchta terminalining vazifasi qanday?', 'answers': {'a': 'Baza signalni qabul qiladi, kollektyor va emitor esa tokni boshqaradi', 'b': 'Baza, kollektyor va emitor faqat signal uzatadi', 'c': 'Kollektyor signalni qabul qiladi, emitor esa energiyani tarqatadi', 'd': 'Baza faqat kuchlanishni boshqaradi'}, 'correct': 'a'}, {'question': 'Elektr sxemalarida signal kuchaytirish uchun qaysi qurilma ishlatiladi?', 'answers': {'a': 'Diod', 'b': 'Tranzistor', 'c': 'Induktor', 'd': 'Kondensator'}, 'correct': 'b'}, {'question': 'Kondensatorni qanday ishlatish mumkin?', 'answers': {'a': 'Tokni kuchaytirish uchun', 'b': "Energiyani saqlash va zarur bo'lganda chiqarish uchun", 'c': 'Kuchlanishni pasaytirish uchun', 'd': 'Tokni boshqarish uchun'}, 'correct': 'b'}, {'question': 'Elektr sxemalarida "AC" va "DC" qisqartmalari nimani anglatadi?', 'answers': {'a': 'Analog Control va Digital Control', 'b': 'Alternating Current va Direct Current', 'c': 'Automatic Control va Digital Control', 'd': 'Alternating Circuit va Direct Circuit'}, 'correct': 'b'}, {'question': 'Transformatorning asosiy vazifasi nima?', 'answers': {'a': 'Kuchlanishni oshirish', 'b': 'Tokni kuchaytirish', 'c': "Kuchlanishni o'zgartirish", 'd': 'okni cheklash'}, 'correct': 'c'}, {'question': 'Transformatorning samaradorligini aniqlashda qanday omil eng muhimdir?', 'answers': {'a': 'Diodning qarshiligi', 'b': "Magnetik yo'qotishlar", 'c': "Kondensatorning sig'imi", 'd': 'Tranzistorning ishlash tezligi'}, 'correct': 'b'}, {'question': 'Asinxron dvigatelning ishlash prinsipi nima?', 'answers': {'a': 'Doimiy tezlikda ishlaydi', 'b': "Rotor maydoni stator maydoniga qarama-qarshi yo'nalishda aylanadi", 'c': "Rotor va stator maydonlari doimo bir xil yo'nalishda aylanishi kerak", 'd': "Rotor va stator maydonlari doimiy ravishda bir-biriga parallel bo'ladi"}, 'correct': 'b'}, {'question': 'Asinxron dvigatelda rotorning aylanish tezligi nima bilan belgilanadi?', 'answers': {'a': 'Statordagi kuchlanishning qiymati', 'b': 'Rotorning ishlash tezligi bilan', 'c': 'Statorning aylanish tezligi bilan', 'd': "Rotorning aylanish tezligi stator maydoniga nisbatan bo'ladi"}, 'correct': 'd'}, {'question': 'Asinxron dvigatelning foydalari qaysilar?', 'answers': {'a': 'Ular faqat yuqori kuchlanishli tizimlarda ishlaydi', 'b': 'Ular yaxshi samaradorlikka ega va kam texnik xizmatni talab qiladi', 'c': 'Ular faqat kichik qurilmalarda ishlaydi', 'd': 'Ular doimiy tokda ishlaydi'}, 'correct': 'b'}, {'question': "Yarimo'tkazgichli diod nima uchun ishlatiladi?", 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Kuchlanishni oshirish', 'c': 'Elektr energiyasini saqlash', 'd': 'Signallarni kuchaytirish'}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diodning asosiy xususiyati nima?", 'answers': {'a': "U har qanday tokni o'zgartiradi", 'b': 'U kuchlanishni doimiy ravishda oshiradi', 'c': "U tokni faqat bir yo'nalishda o'tkazadi", 'd': 'U kuchlanishni kamaytiradi'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodning ishlash prinsipi qanday?", 'answers': {'a': "Tokni har ikki yo'nalishda o'tkazish orqali ishlaydi", 'b': "Faol yuzalari orqali bir yo'nalishdagi tokni o'tkazadi", 'c': 'Energiyani saqlaydi', 'd': "O'zgaruvchan tokni doimiy tokka aylantiradi"}, 'correct': 'b'}, {'question': "Nima sababdan yarimo'tkazgichli diodlar tarmoqlarda ko'proq ishlatiladi?", 'answers': {'a': 'Ular yuqori kuchlanishda ishlaydi', 'b': 'Ular kichik hajmdagi komponentlar', 'c': 'Ular faqat tarmoqlarda ishlaydi', 'd': 'Ular doimiy tokni kuchaytiradi'}, 'correct': 'b'}, {'question': 'Tranzistorning ishlash prinsipi nima?', 'answers': {'a': 'Elektr energiyasini magnit energiyasiga aylantiradi', 'b': "Tokni faqat bir yo'nalishda o'tkazadi", 'c': 'Signallarni kuchaytiradi va boshqaradi', 'd': 'Elektronlarni saqlaydi'}, 'correct': 'c'}, {'question': 'Tranzistorlar nima uchun ishlatiladi?', 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Signallarni kuchaytirish va boshqarish', 'c': 'Kuchlanishni oshirish', 'd': 'Tokni kuchaytirish'}, 'correct': 'b'}, {'question': 'Tranzistorning asosiy turlari qaysilar?', 'answers': {'a': 'PNP va NPN', 'b': 'LED va LCD', 'c': 'Diod va Induktor', 'd': 'Kondenstor va Rezistor'}, 'correct': 'a'}, {'question': "Tranzistorlar ko'pincha qanday rolda ishlatiladi?", 'answers': {'a': 'Signalni kuchaytirish', 'b': 'Tokni cheklash', 'c': 'Kuchlanishni kamaytirish', 'd': 'Elektr energiyasini saqlash'}, 'correct': 'a'}, {'question': 'Tranzistorlar qanday ishlash rejimlariga ega?', 'answers': {'a': 'Yuksaltirish va pastlatirish', 'b': 'Aktiv va pasiv', 'c': 'Ochiq va yopiq', 'd': "Qaytish va to'xtash"}, 'correct': 'b'}, {'question': 'Tranzistorning bazasi nima uchun ishlatiladi?', 'answers': {'a': 'Tokni boshqaradi', 'b': 'Signalni kuchaytiradi', 'c': 'Kuchlanishni oshiradi', 'd': 'Elektr energiyasini saqlaydi'}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diodlar va tranzistorlar orasidagi farq nima?", 'answers': {'a': 'Tranzistorlar faqat kuchlanishni boshqaradi', 'b': "Diod faqat tokni bir yo'nalishda o'tkazadi, tranzistorlar esa signallarni kuchaytiradi", 'c': "Tranzistorlar faqat o'zgaruvchan tokni ishlatadi", 'd': 'Diodlar faqat signallarni kuchaytiradi'}, 'correct': 'b'}, {'question': 'Transformatorning samaradorligini oshirish uchun qanday materiallar ishlatiladi?', 'answers': {'a': 'Qalay va mis', 'b': 'Metall va keramika', 'c': "Yuqori o'tkazuvchanlikka ega materiallar, masalan, temir yadro", 'd': 'Plastik va kremniy'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodlar o'zgaruvchan tokni qanday o'zgartiradi?", 'answers': {'a': "Ular o'zgaruvchan tokni to'liq tokka aylantiradi", 'b': "Ular o'zgaruvchan tokni boshqaradi", 'c': "Ular o'zgaruvchan tokni pasaytiradi", 'd': "Ular o'zgaruvchan tokni"}, 'correct': 'a'}, {'question': 'Asinxron dvigatelning rotorida nima mavjud?', 'answers': {'a': "Faol yo'naltirilgan magnetlar", 'b': "O'zgaruvchan magnit maydoni", 'c': 'Doimiy magnit maydoni', 'd': 'Tokni pasaytiruvchi komponentlar'}, 'correct': 'b'}, {'question': 'Diodning asosiy vazifasi nima?', 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Kuchlanishni oshirish', 'c': 'Signalni kuchaytirish', 'd': "Tokni har ikki yo'nalishda o'tkazish"}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diod nima uchun ishlatiladi?", 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': "Tokni ikkita yo'nalishda o'tkazish", 'c': 'Kuchlanishni oshirish', 'd': 'Signalni kuchaytirish'}, 'correct': 'a'}, {'question': 'Diodning asosiy turlari qaysilar?', 'answers': {'a': 'PNP va NPN', 'b': 'Anod va katod', 'c': 'P-N va Zener diodlari', 'd': 'Diod va tranzistor'}, 'correct': 'c'}, {'question': 'P-N diod nima?', 'answers': {'a': "Elektronlarni doimiy ravishda yo'naltiradi", 'b': "Tokni faqat bir yo'nalishda o'tkazadigan yarimo'tkazgichli komponent", 'c': 'Energiyani saqlaydi', 'd': "Ikkita terminalga ega bo'lgan kondensator"}, 'correct': 'b'}, {'question': 'Zener diodning asosiy xususiyati nima?', 'answers': {'a': 'U faqat yuqori kuchlanishda ishlaydi', 'b': "U o'zgaruvchan kuchlanishda ishlaydi", 'c': "U kuchlanishning ko'payishiga qarshi ishlaydi va teskari kuchlanish ta'sirida ishlaydi", 'd': 'U kuchlanishni pasaytiradi'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodlar qanday materiallardan tayyorlanadi?", 'answers': {'a': 'Plastik', 'b': 'Keramika', 'c': 'Kremniy yoki germaniy', 'd': 'Temir yoki mis'}, 'correct': 'c'}, {'question': 'Fotodiod qanday ishlaydi?', 'answers': {'a': "Ikkita yonalishli tokni o'tkazadi", 'b': 'faqat yuqori kuchlanishli tizimlarda ishlaydi', 'c': "yorug'lik ta'sirida tokni o'tkazadi", 'd': 'kuchlanishni oshiradi'}, 'correct': 'c'}, {'question': 'Shotki diodning boshqa diodlardan farqi nima?', 'answers': {'a': 'U yuqori kuchlanishda ishlaydi', 'b': "U faqat pasaytiruvchi tokni o'tkazadi", 'c': 'U past kuchlanishli tushishiga ega va tezroq ishlaydi', 'd': "U faqat o'zgaruvchan tokni o'tkazadi"}, 'correct': 'c'}, {'question': 'LED (Light Emitting Diode) diodning asosiy xususiyati nima?', 'answers': {'a': 'U energiyani saqlaydi', 'b': "U faqat qizil rangda yorug'lik chiqaradi", 'c': "U yorug'lik chiqaradi, lekin energiya sarflaydi", 'd': "U energiyani kam sarflaydi va yorug'lik hosil qiladi"}, 'correct': 'd'}, {'question': "Diodlar nima uchun ko'proq ishlatiladi?", 'answers': {'a': 'Ular kuchlanishni oshiradi', 'b': 'Ular signallarni kuchaytiradi', 'c': "Ular faqat bir yo'nalishdagi tokni o'tkazadi, bu esa tizimlarni himoya qiladi", 'd': 'Ular faqat yuqori kuchlanishli tizimlarda ishlaydi'}, 'correct': 'c'}, {'question': 'Tunnel diodning ishlash prinsipida nima bor?', 'answers': {'a': 'U past kuchlanishda ishlaydi va yuqori tezlikda ishlaydi', 'b': 'U kuchlanishni oshiradi', 'c': "U faqat bir yo'nalishdagi tokni o'tkazadi", 'd': 'U kuchlanishlarni kamaytiradi'}, 'correct': 'a'}, {'question': "Diodning 'forward bias' rejimi qanday ishlaydi?", 'answers': {'a': "Diod tokni faqat teskari yo'nalishda o'tkazadi", 'b': "Diod tokni faqat oldinga yo'nalishda o'tkazadi", 'c': "Diod tokni hech qanday yo'nalishda o'tkazmaydi", 'd': "Diodning kuchlanishi o'zgarmaydi"}, 'correct': 'b'}, {'question': 'Om qonuni nima?', 'answers': {'a': 'Kuchlanishning qarshilikka nisbati toki beradi', 'b': 'Tokning kuchlanishga nisbati qarshilikni beradi', 'c': 'Qarshilikning kuchlanishga nisbati toki beradi', 'd': 'Tokning qarshilikka nisbati kuchlanishni beradi'}, 'correct': 'a'}, {'question': "Om qonuniga ko'ra, agar qarshilik 10 om va kuchlanish 20V bo'lsa, tokni qanday hisoblash mumkin?", 'answers': {'a': '2 A', 'b': '20 A', 'c': '30 A', 'd': '200 A'}, 'correct': 'a'}, {'question': "Om qonuniga ko'ra, agar tok 5 A va qarshilik 4 ohm bo'lsa, kuchlanish qanday hisoblanadi?", 'answers': {'a': '9 V', 'b': '10 V', 'c': '20 V', 'd': '40 V'}, 'correct': 'd'}, {'question': "Om qonuni bo'yicha, kuchlanish va tokni hisoblashda qarshilik qanday o'zgaradi?", 'answers': {'a': 'Agar kuchlanish oshsa, tok kamayadi, qarshilik oshadi', 'b': 'Agar kuchlanish oshsa, tok oshadi, qarshilik kamayadi', 'c': "Agar kuchlanish oshsa, tok oshadi, qarshilik o'zgaradi", 'd': "Agar kuchlanish oshsa, tok o'zgaradi, qarshilik o'zgaradi"}, 'correct': 'c'}, {'question': 'Kirxgofning birinchi qonuni qanday ifodalanadi?', 'answers': {'a': "Tugunga kiruvchi va chiquvchi toklarning algebraik yigâ€™indisi  0 ga teng bo'ladi", 'b': "Oqimlarning yig'indisi 1 ga teng bo'ladi", 'c': "Kuchlanishlarning yig'indisi 0 ga teng bo'ladi", 'd': "Kuchlanishlarning yig'indisi 1 ga teng bo'ladi"}, 'correct': 'a'}, {'question': 'Kirxgofning ikkinchi qonuni qanday ifodalanadi?', 'answers': {'a': "Tugunga kiruvchi va chiquvchi kuchlanishlarning yig'indisi 0 ga teng bo'ladi", 'b': "Tugunga kiruvchi va chiquvchi toklarning algebraik yigâ€™indisi  0 ga teng bo'ladi", 'c': "Oqimlar 1 ga teng bo'ladi", 'd': "Kuchlanishlar 1 ga teng bo'ladi"}, 'correct': 'a'}, {'question': "Kirxgofning ikkinchi qonunini qanday qo'llash mumkin?", 'answers': {'a': 'Oqimlarni hisoblash uchun', 'b': 'Kuchlanishlarni tarmoqda joylashtirish uchun', 'c': 'Tarmoqda oqimlarning tarqalishini hisoblash uchun', 'd': "Kuchlanishning to'liq miqdorini hisoblash uchun"}, 'correct': 'b'},{'question': 'Tranzistorning uchta terminalining vazifasi qanday?', 'answers': {'a': 'Baza signalni qabul qiladi, kollektyor va emitor esa tokni boshqaradi', 'b': 'Baza, kollektyor va emitor faqat signal uzatadi', 'c': 'Kollektyor signalni qabul qiladi, emitor esa energiyani tarqatadi', 'd': 'Baza faqat kuchlanishni boshqaradi'}, 'correct': 'a'}, {'question': 'Elektr sxemalarida signal kuchaytirish uchun qaysi qurilma ishlatiladi?', 'answers': {'a': 'Diod', 'b': 'Tranzistor', 'c': 'Induktor', 'd': 'Kondensator'}, 'correct': 'b'}, {'question': 'Kondensatorni qanday ishlatish mumkin?', 'answers': {'a': 'Tokni kuchaytirish uchun', 'b': "Energiyani saqlash va zarur bo'lganda chiqarish uchun", 'c': 'Kuchlanishni pasaytirish uchun', 'd': 'Tokni boshqarish uchun'}, 'correct': 'b'}, {'question': 'Elektr sxemalarida "AC" va "DC" qisqartmalari nimani anglatadi?', 'answers': {'a': 'Analog Control va Digital Control', 'b': 'Alternating Current va Direct Current', 'c': 'Automatic Control va Digital Control', 'd': 'Alternating Circuit va Direct Circuit'}, 'correct': 'b'}, {'question': 'Transformatorning asosiy vazifasi nima?', 'answers': {'a': 'Kuchlanishni oshirish', 'b': 'Tokni kuchaytirish', 'c': "Kuchlanishni o'zgartirish", 'd': 'okni cheklash'}, 'correct': 'c'}, {'question': 'Transformatorning samaradorligini aniqlashda qanday omil eng muhimdir?', 'answers': {'a': 'Diodning qarshiligi', 'b': "Magnetik yo'qotishlar", 'c': "Kondensatorning sig'imi", 'd': 'Tranzistorning ishlash tezligi'}, 'correct': 'b'}, {'question': 'Asinxron dvigatelning ishlash prinsipi nima?', 'answers': {'a': 'Doimiy tezlikda ishlaydi', 'b': "Rotor maydoni stator maydoniga qarama-qarshi yo'nalishda aylanadi", 'c': "Rotor va stator maydonlari doimo bir xil yo'nalishda aylanishi kerak", 'd': "Rotor va stator maydonlari doimiy ravishda bir-biriga parallel bo'ladi"}, 'correct': 'b'}, {'question': 'Asinxron dvigatelda rotorning aylanish tezligi nima bilan belgilanadi?', 'answers': {'a': 'Statordagi kuchlanishning qiymati', 'b': 'Rotorning ishlash tezligi bilan', 'c': 'Statorning aylanish tezligi bilan', 'd': "Rotorning aylanish tezligi stator maydoniga nisbatan bo'ladi"}, 'correct': 'd'}, {'question': 'Asinxron dvigatelning foydalari qaysilar?', 'answers': {'a': 'Ular faqat yuqori kuchlanishli tizimlarda ishlaydi', 'b': 'Ular yaxshi samaradorlikka ega va kam texnik xizmatni talab qiladi', 'c': 'Ular faqat kichik qurilmalarda ishlaydi', 'd': 'Ular doimiy tokda ishlaydi'}, 'correct': 'b'}, {'question': "Yarimo'tkazgichli diod nima uchun ishlatiladi?", 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Kuchlanishni oshirish', 'c': 'Elektr energiyasini saqlash', 'd': 'Signallarni kuchaytirish'}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diodning asosiy xususiyati nima?", 'answers': {'a': "U har qanday tokni o'zgartiradi", 'b': 'U kuchlanishni doimiy ravishda oshiradi', 'c': "U tokni faqat bir yo'nalishda o'tkazadi", 'd': 'U kuchlanishni kamaytiradi'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodning ishlash prinsipi qanday?", 'answers': {'a': "Tokni har ikki yo'nalishda o'tkazish orqali ishlaydi", 'b': "Faol yuzalari orqali bir yo'nalishdagi tokni o'tkazadi", 'c': 'Energiyani saqlaydi', 'd': "O'zgaruvchan tokni doimiy tokka aylantiradi"}, 'correct': 'b'}, {'question': "Nima sababdan yarimo'tkazgichli diodlar tarmoqlarda ko'proq ishlatiladi?", 'answers': {'a': 'Ular yuqori kuchlanishda ishlaydi', 'b': 'Ular kichik hajmdagi komponentlar', 'c': 'Ular faqat tarmoqlarda ishlaydi', 'd': 'Ular doimiy tokni kuchaytiradi'}, 'correct': 'b'}, {'question': 'Tranzistorning ishlash prinsipi nima?', 'answers': {'a': 'Elektr energiyasini magnit energiyasiga aylantiradi', 'b': "Tokni faqat bir yo'nalishda o'tkazadi", 'c': 'Signallarni kuchaytiradi va boshqaradi', 'd': 'Elektronlarni saqlaydi'}, 'correct': 'c'}, {'question': 'Tranzistorlar nima uchun ishlatiladi?', 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Signallarni kuchaytirish va boshqarish', 'c': 'Kuchlanishni oshirish', 'd': 'Tokni kuchaytirish'}, 'correct': 'b'}, {'question': 'Tranzistorning asosiy turlari qaysilar?', 'answers': {'a': 'PNP va NPN', 'b': 'LED va LCD', 'c': 'Diod va Induktor', 'd': 'Kondenstor va Rezistor'}, 'correct': 'a'}, {'question': "Tranzistorlar ko'pincha qanday rolda ishlatiladi?", 'answers': {'a': 'Signalni kuchaytirish', 'b': 'Tokni cheklash', 'c': 'Kuchlanishni kamaytirish', 'd': 'Elektr energiyasini saqlash'}, 'correct': 'a'}, {'question': 'Tranzistorlar qanday ishlash rejimlariga ega?', 'answers': {'a': 'Yuksaltirish va pastlatirish', 'b': 'Aktiv va pasiv', 'c': 'Ochiq va yopiq', 'd': "Qaytish va to'xtash"}, 'correct': 'b'}, {'question': 'Tranzistorning bazasi nima uchun ishlatiladi?', 'answers': {'a': 'Tokni boshqaradi', 'b': 'Signalni kuchaytiradi', 'c': 'Kuchlanishni oshiradi', 'd': 'Elektr energiyasini saqlaydi'}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diodlar va tranzistorlar orasidagi farq nima?", 'answers': {'a': 'Tranzistorlar faqat kuchlanishni boshqaradi', 'b': "Diod faqat tokni bir yo'nalishda o'tkazadi, tranzistorlar esa signallarni kuchaytiradi", 'c': "Tranzistorlar faqat o'zgaruvchan tokni ishlatadi", 'd': 'Diodlar faqat signallarni kuchaytiradi'}, 'correct': 'b'}, {'question': 'Transformatorning samaradorligini oshirish uchun qanday materiallar ishlatiladi?', 'answers': {'a': 'Qalay va mis', 'b': 'Metall va keramika', 'c': "Yuqori o'tkazuvchanlikka ega materiallar, masalan, temir yadro", 'd': 'Plastik va kremniy'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodlar o'zgaruvchan tokni qanday o'zgartiradi?", 'answers': {'a': "Ular o'zgaruvchan tokni to'liq tokka aylantiradi", 'b': "Ular o'zgaruvchan tokni boshqaradi", 'c': "Ular o'zgaruvchan tokni pasaytiradi", 'd': "Ular o'zgaruvchan tokni"}, 'correct': 'a'}, {'question': 'Asinxron dvigatelning rotorida nima mavjud?', 'answers': {'a': "Faol yo'naltirilgan magnetlar", 'b': "O'zgaruvchan magnit maydoni", 'c': 'Doimiy magnit maydoni', 'd': 'Tokni pasaytiruvchi komponentlar'}, 'correct': 'b'}, {'question': 'Diodning asosiy vazifasi nima?', 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': 'Kuchlanishni oshirish', 'c': 'Signalni kuchaytirish', 'd': "Tokni har ikki yo'nalishda o'tkazish"}, 'correct': 'a'}, {'question': "Yarimo'tkazgichli diod nima uchun ishlatiladi?", 'answers': {'a': "Tokni faqat bir yo'nalishda o'tkazish", 'b': "Tokni ikkita yo'nalishda o'tkazish", 'c': 'Kuchlanishni oshirish', 'd': 'Signalni kuchaytirish'}, 'correct': 'a'}, {'question': 'Diodning asosiy turlari qaysilar?', 'answers': {'a': 'PNP va NPN', 'b': 'Anod va katod', 'c': 'P-N va Zener diodlari', 'd': 'Diod va tranzistor'}, 'correct': 'c'}, {'question': 'P-N diod nima?', 'answers': {'a': "Elektronlarni doimiy ravishda yo'naltiradi", 'b': "Tokni faqat bir yo'nalishda o'tkazadigan yarimo'tkazgichli komponent", 'c': 'Energiyani saqlaydi', 'd': "Ikkita terminalga ega bo'lgan kondensator"}, 'correct': 'b'}, {'question': 'Zener diodning asosiy xususiyati nima?', 'answers': {'a': 'U faqat yuqori kuchlanishda ishlaydi', 'b': "U o'zgaruvchan kuchlanishda ishlaydi", 'c': "U kuchlanishning ko'payishiga qarshi ishlaydi va teskari kuchlanish ta'sirida ishlaydi", 'd': 'U kuchlanishni pasaytiradi'}, 'correct': 'c'}, {'question': "Yarimo'tkazgichli diodlar qanday materiallardan tayyorlanadi?", 'answers': {'a': 'Plastik', 'b': 'Keramika', 'c': 'Kremniy yoki germaniy', 'd': 'Temir yoki mis'}, 'correct': 'c'}, {'question': 'Fotodiod qanday ishlaydi?', 'answers': {'a': "Ikkita yonalishli tokni o'tkazadi", 'b': 'faqat yuqori kuchlanishli tizimlarda ishlaydi', 'c': "yorug'lik ta'sirida tokni o'tkazadi", 'd': 'kuchlanishni oshiradi'}, 'correct': 'c'}, {'question': 'Shotki diodning boshqa diodlardan farqi nima?', 'answers': {'a': 'U yuqori kuchlanishda ishlaydi', 'b': "U faqat pasaytiruvchi tokni o'tkazadi", 'c': 'U past kuchlanishli tushishiga ega va tezroq ishlaydi', 'd': "U faqat o'zgaruvchan tokni o'tkazadi"}, 'correct': 'c'}, {'question': 'LED (Light Emitting Diode) diodning asosiy xususiyati nima?', 'answers': {'a': 'U energiyani saqlaydi', 'b': "U faqat qizil rangda yorug'lik chiqaradi", 'c': "U yorug'lik chiqaradi, lekin energiya sarflaydi", 'd': "U energiyani kam sarflaydi va yorug'lik hosil qiladi"}, 'correct': 'd'}, {'question': "Diodlar nima uchun ko'proq ishlatiladi?", 'answers': {'a': 'Ular kuchlanishni oshiradi', 'b': 'Ular signallarni kuchaytiradi', 'c': "Ular faqat bir yo'nalishdagi tokni o'tkazadi, bu esa tizimlarni himoya qiladi", 'd': 'Ular faqat yuqori kuchlanishli tizimlarda ishlaydi'}, 'correct': 'c'}, {'question': 'Tunnel diodning ishlash prinsipida nima bor?', 'answers': {'a': 'U past kuchlanishda ishlaydi va yuqori tezlikda ishlaydi', 'b': 'U kuchlanishni oshiradi', 'c': "U faqat bir yo'nalishdagi tokni o'tkazadi", 'd': 'U kuchlanishlarni kamaytiradi'}, 'correct': 'a'}, {'question': "Diodning 'forward bias' rejimi qanday ishlaydi?", 'answers': {'a': "Diod tokni faqat teskari yo'nalishda o'tkazadi", 'b': "Diod tokni faqat oldinga yo'nalishda o'tkazadi", 'c': "Diod tokni hech qanday yo'nalishda o'tkazmaydi", 'd': "Diodning kuchlanishi o'zgarmaydi"}, 'correct': 'b'}, {'question': 'Om qonuni nima?', 'answers': {'a': 'Kuchlanishning qarshilikka nisbati toki beradi', 'b': 'Tokning kuchlanishga nisbati qarshilikni beradi', 'c': 'Qarshilikning kuchlanishga nisbati toki beradi', 'd': 'Tokning qarshilikka nisbati kuchlanishni beradi'}, 'correct': 'a'}, {'question': "Om qonuniga ko'ra, agar qarshilik 10 om va kuchlanish 20V bo'lsa, tokni qanday hisoblash mumkin?", 'answers': {'a': '2 A', 'b': '20 A', 'c': '30 A', 'd': '200 A'}, 'correct': 'a'}, {'question': "Om qonuniga ko'ra, agar tok 5 A va qarshilik 4 ohm bo'lsa, kuchlanish qanday hisoblanadi?", 'answers': {'a': '9 V', 'b': '10 V', 'c': '20 V', 'd': '40 V'}, 'correct': 'd'}, {'question': "Om qonuni bo'yicha, kuchlanish va tokni hisoblashda qarshilik qanday o'zgaradi?", 'answers': {'a': 'Agar kuchlanish oshsa, tok kamayadi, qarshilik oshadi', 'b': 'Agar kuchlanish oshsa, tok oshadi, qarshilik kamayadi', 'c': "Agar kuchlanish oshsa, tok oshadi, qarshilik o'zgaradi", 'd': "Agar kuchlanish oshsa, tok o'zgaradi, qarshilik o'zgaradi"}, 'correct': 'c'}, {'question': 'Kirxgofning birinchi qonuni qanday ifodalanadi?', 'answers': {'a': "Tugunga kiruvchi va chiquvchi toklarning algebraik yigâ€™indisi  0 ga teng bo'ladi", 'b': "Oqimlarning yig'indisi 1 ga teng bo'ladi", 'c': "Kuchlanishlarning yig'indisi 0 ga teng bo'ladi", 'd': "Kuchlanishlarning yig'indisi 1 ga teng bo'ladi"}, 'correct': 'a'}, {'question': 'Kirxgofning ikkinchi qonuni qanday ifodalanadi?', 'answers': {'a': "Tugunga kiruvchi va chiquvchi kuchlanishlarning yig'indisi 0 ga teng bo'ladi", 'b': "Tugunga kiruvchi va chiquvchi toklarning algebraik yigâ€™indisi  0 ga teng bo'ladi ", 'c': "Oqimlar 1 ga teng bo'ladi", 'd': "Kuchlanishlar 1 ga teng bo'ladi"}, 'correct': 'a'}, {'question': "Kirxgofning ikkinchi qonunini qanday qo'llash mumkin?", 'answers': {'a': 'Oqimlarni hisoblash uchun', 'b': 'Kuchlanishlarni tarmoqda joylashtirish uchun', 'c': 'Tarmoqda oqimlarning tarqalishini hisoblash uchun', 'd': "Kuchlanishning to'liq miqdorini hisoblash uchun"}, 'correct': 'b'}, {'question': 'Seriyali ulanadigan qarshiliklar uchun umumiy qarshilik qanday hisoblanadi?', 'answers': {'a': "Qarshiliklarning yig'indisi", 'b': "Qarshiliklarning o'rtacha qiymati", 'c': 'Qarshiliklarning eng katta qiymati', 'd': 'Qarshiliklarning eng kichik qiymati'}, 'correct': 'a'}, {'question': 'Paralel ulanishdagi qarshiliklar uchun umumiy qarshilik qanday hisoblanadi?', 'answers': {'a': "Qarshiliklarning yig'indisi", 'b': "Qarshiliklarning o'rtacha qiymati", 'c': "Qarshiliklarning inversi yig'indisi", 'd': 'Qarshiliklarning eng katta qiymati'}, 'correct': 'c'}, {'question': "Seriyali ulashda qarshiliklar qanday ta'sir qiladi?", 'answers': {'a': 'Qarshiliklarning qiymati kamayadi', 'b': "Qarshiliklarning qiymati o'zgarmaydi", 'c': 'Qarshiliklarning qiymati oshadi', 'd': " Qarshiliklar bir-birini to'liq olib tashlaydi"}, 'correct': 'c'}, {'question': "Paralel ulanishda qarshiliklar qanday ta'sir qiladi?", 'answers': {'a': 'Qarshiliklarning qiymati oshadi', 'b': "Qarshiliklarning qiymati o'zgarmaydi", 'c': ' Qarshiliklarning qiymati kamayadi', 'd': " Qarshiliklar bir-birini to'liq olib tashlaydi"}, 'correct': 'c'},
-{'question': "O'zgaruvchan tok (AC) nima?", 'answers': {'a': " Tokning yo'nalishi va kuchlanishi vaqt o'tishi bilan o'zgaradi", 'b': "Tokning yo'nalishi o'zgarmaydi", 'c': " Tok faqat bir yo'nalishda oqadi", 'd': 'Tok faqat kichik kuchlanishda ishlaydi'}, 'correct': 'a'}, {'question': "O'zgarmas tok (DC) qanday ishlaydi?", 'answers': {'a': "Tokning yo'nalishi va kuchlanishi o'zgaradi", 'b': "Tokning yo'nalishi doimiy bo'lib, faqat bitta yo'nalishda oqadi", 'c': 'Tok faqat katta kuchlanishda ishlaydi', 'd': 'Tok faqat kichik kuchlanishda ishlaydi'}, 'correct': 'b'}, {'question': "O'zgaruvchan tokning chastotasi qanday o'lchanadi?", 'answers': {'a': "Vol'tlarda", 'b': 'Amperda', 'c': 'Hertzda', 'd': 'Ohmlarda'}, 'correct': 'c'}, {'question': "O'zgarmas tok va o'zgaruvchan tok orasidagi farq nima?", 'answers': {'a': " O'zgarmas tok faqat kichik kuchlanishda ishlaydi, o'zgaruvchan tok esa katta kuchlanishda ishlaydi", 'b': "O'zgarmas tokning yo'nalishi o'zgaradi, o'zgaruvchan tok esa bir xil yo'nalishda oqadi", 'c': " O'zgarmas tok bir yo'nalishda oqadi, o'zgaruvchan tok esa yo'nalishini o'zgartiradi", 'd': " O'zgarmas tok faqat yuqori kuchlanishda ishlaydi, o'zgaruvchan tok esa past kuchlanishda ishlaydi"}, 'correct': 'c'}, {'question': "Induktiv g'altak nima?", 'answers': {'a': " Tokni faqat bir yo'nalishda o'tkazadi", 'b': ' Magnit maydonini yaratish uchun ishlatiladi', 'c': ' Kuchlanishni oshiradi', 'd': ' Yoritish uchun ishlatiladi'}, 'correct': 'b'}, {'question': "Induktiv g'altakning asosiy xususiyati nima?", 'answers': {'a': " U o'zgaruvchan tokni o'zgartiradi", 'b': ' U kuchlanishni oshiradi', 'c': ' U magnit maydoni hosil qiladi', 'd': ' U tokni saqlaydi'}, 'correct': 'c'}, {'question': "Induktiv g'altakda qanday energiya saqlanadi?", 'answers': {'a': 'Harorat energiyasi', 'b': ' Magnit energiyasi', 'c': ' Elektr energiyasi', 'd': ' Kinetik energiya'}, 'correct': 'b'}, {'question': "Induktiv g'altakning qarshiligi qanday ta'sir qiladi?", 'answers': {'a': 'Qarshilikni kamaytiradi', 'b': ' Qarshilikni oshiradi', 'c': "Qarshilikni hech qanday ta'sir qilmaydi", 'd': " Qarshilikni yo'q qiladi"}, 'correct': 'b'}, {'question': "Induktiv g'altakning o'lchov birligi qanday ataladi?", 'answers': {'a': '  Ohm', 'b': ' Volt', 'c': ' Henry', 'd': 'Fara'}, 'correct': 'c'},{'question': 'Kondensator nima?', 'answers': {'a': 'Energiya saqlash uchun qurilma', 'b': "Tokni faqat bir yo'nalishda o'tkazadigan qurilma", 'c': "O'zgarmas tokni kuchaytiruvchi qurilma", 'd': 'Kuchlanishni pasaytiradigan qurilma'}, 'correct': 'a'}, {'question': 'Kondensatorning asosiy vazifasi nima?', 'answers': {'a': "Tokni o'tkazish", 'b': 'Elektr energiyasini saqlash', 'c': 'Kuchlanishni oshirish', 'd': ' Magnit maydonini yaratish'}, 'correct': 'b'}, {'question': "Kondensatorning o'lchov birligi qanday ataladi?", 'answers': {'a': ' Ohm', 'b': 'Farad', 'c': 'Henry', 'd': ' Volt'}, 'correct': 'b'}, {'question': "Kondensatorning zaryad yig'indisi qanday bog'lanadi?", 'answers': {'a': "Zaryad yig'indisi kuchlanish va qobiliyatga nisbatan proporsional", 'b': "Zaryad yig'indisi qarshilik va tokka nisbatan proporsional", 'c': "Zaryad yig'indisi faqat tokka nisbatan proporsional", 'd': "Zaryad yig'indisi faqat kuchlanishga nisbatan proporsional"}, 'correct': 'a'}, {'question': 'Kondensator qanday holatda energiya saqlaydi?', 'answers': {'a': "Faqat o'zgarmas tokda", 'b': "Faqat o'zgaruvchan tokda", 'c': "O'zgarmas yoki o'zgaruvchan tokda", 'd': 'Faqat yuqori kuchlanishda'}, 'correct': 'c'}, {'question': 'Kondensatorlar qanday usulda ulanadi?', 'answers': {'a': 'Faqat paralel ulanishda', 'b': 'Faqat seriyali ulanishda', 'c': 'Paralel yoki seriyali ulanishda', 'd': "O'zgaruvchan ulanishda"}, 'correct': 'c'}, {'question': "Kondensatorning to'liq zaryadlanishi uchun qancha vaqt kerak?", 'answers': {'a': 'Bir necha sekund', 'b': 'Bir necha millisekund', 'c': 'Bir necha daqiqa', 'd': 'Uzoq vaqt davomida'}, 'correct': 'a'}, {'question': "Kondensator va induktor o'rtasidagi farq nima?", 'answers': {'a': 'Kondensator energiyani magnit maydonda saqlaydi, induktor esa elektr maydonida saqlaydi', 'b': '  Kondensator energiyani saqlaydi, induktor esa tokni saqlaydi', 'c': "Kondensator faqat o'zgarmas tokda ishlaydi, induktor esa faqat o'zgaruvchan tokda ishlaydi", 'd': 'Kondensator faqat kichik kuchlanishda ishlaydi, induktor esa yuqori kuchlanishda ishlaydi'}, 'correct': 'b'}, {'question': "O'zgaruvchan tok (AC) va doimiy tok (DC) orasidagi asosiy farq nima?", 'answers': {'a': "O'zgaruvchan tokning yo'nalishi va kuchlanishi vaqt o'tishi bilan o'zgaradi, doimiy tokda esa bu o'zgarmaydi", 'b': "O'zgaruvchan tok faqat bir yo'nalishda oqadi, doimiy tok esa ikki yo'nalishda oqadi", 'c': "O'zgaruvchan tokning kuchlanishi doimiy bo'ladi, doimiy tokda esa bu o'zgarmaydi", 'd': "O'zgaruvchan tok faqat yuqori kuchlanishlarda ishlaydi, doimiy tok esa past kuchlanishda ishlaydi"}, 'correct': 'a'}, {'question': "O'zgaruvchan tokning chastotasi qanday belgilanadi?", 'answers': {'a': ' Volt', 'b': 'Amper', 'c': 'Hertz', 'd': 'Ohm'}, 'correct': 'c'}, {'question': 'Doimiy tokda qanday energiya saqlanadi?', 'answers': {'a': ' Magnit energiya', 'b': 'Elektr energiya', 'c': ' Kinetik energiya', 'd': 'Issiqlik energiya'}, 'correct': 'b'}];
-    // Savollarni aralashtirish funksiyasi
+const quizData=    [{
+            'question': "Ma'lumotlar bazasi (MB) nima?",
+            'answers': {
+                'a': "  Ma'lumotlarni tartiblashtirish va saqlash tizimi",
+                'b': " Faqat matnli ma'lumotlarni saqlash vositasi",
+                'c': " Faqat raqamli ma'lumotlarni saqlash vositasi",
+                'd': ' Shaxsiy kompyuter dasturi'
+            },
+            'correct': 'a'
+        }, {
+            'question': "MBBT (ma'lumotlar bazasini boshqarish tizimi) qaysi biriga misol boâ€-la oladi?",
+            'answers': {
+                'a': '  MySQL',
+                'b': ' Microsoft Word',
+                'c': ' Microsoft Excel',
+                'd': ' Paint'
+            },
+            'correct': 'a'
+        },{
+            'question': '"Primary Key" deganda nimani tushunasiz?',
+            'answers': {
+                'a': '  Jadvalda har bir satrni birlamchi kalit sifatida ishlatiladigan ustun',
+                'b': " Takrorlanuvchi ma'lumotlarni saqlash",
+                'c': ' Har bir ustunni boshqaruvchi kalit',
+                'd': " Jadval ustunlarini o'chirish kaliti"
+            },
+            'correct': 'a'
+        }, {
+            'question': '"Foreign Key" nima?',
+            'answers': {
+                'a': " Bir jadvalda boshqa jadvaldagi kalitga bog'lanish uchun ishlatiladigan kalit",
+                'b': ' Jadvaldagi chet el valyutasi qiymati',
+                'c': ' Jadvaldagi indeks qiymati',
+                'd': " Qo'shimcha qiymatlar"
+            },
+            'correct': 'a'
+        }, {
+            'question': "Relatsion ma'lumotlar bazasi nima?",
+            'answers': {
+                'a': "  Ma'lumotlar jadval koâ€-rinishida saqlanadigan bazalar",
+                'b': " Ma'lumotlar to'plami orasida aloqa boâ€-lmagan bazalar",
+                'c': ' Tasodifiy fayllar toâ€-plami',
+                'd': ' Rasmlar bilan ishlovchi tizimlar'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MBBTda qaysi tildan foydalaniladi?',
+            'answers': {
+                'a': '   SQL',
+                'b': '  HTML',
+                'c': ' Python',
+                'd': ' C++'
+            },
+            'correct': 'a'
+        }, {
+            'question': "SQLda qaysi buyruq jadvaldan ma'lumot olish uchun ishlatiladi?",
+            'answers': {
+                'a': '  SELECT',
+                'b': ' DELETE',
+                'c': ' INSERT',
+                'd': ' UPDATE'
+            },
+            'correct': 'a'
+        },{
+            'question': 'SQLda "NULL" qiymati nimani anglatadi?',
+            'answers': {
+                'a': "  Ma'lumot mavjud emasligini",
+                'b': ' Nol qiymatni',
+                'c': " Bo'sh qatorni",
+                'd': ' 0 qiymatini'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MBBTning asosiy turlari qaysilar?',
+            'answers': {
+                'a': "  Relatsion va ob'ektga yo'naltirilgan",
+                'b': ' Grafik va audio',
+                'c': ' Statik va dinamik',
+                'd': ' Onlayn va oflayn'
+            },
+            'correct': 'a'
+        },
+        {
+            'question': 'Indeks nima uchun ishlatiladi?',
+            'answers': {
+                'a': "  Ma'lumotlarga tezkor kirish uchun",
+                'b': " Ma'lumotlarni takrorlash uchun",
+                'c': " Ma'lumotlarni o'chirish uchun",
+                'd': " Ma'lumotlarni eksport qilish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda jadval yaratish uchun qaysi buyruq ishlatiladi?',
+            'answers': {
+                'a': '  CREATE TABLE',
+                'b': ' SELECT TABLE',
+                'c': ' MAKE TABLE',
+                'd': ' NEW TABLE'
+            },
+            'correct': 'a'
+        }, {
+            'question': "Qaysi buyruq jadvalga yangi ustun qo'shadi?",
+            'answers': {
+                'a': '  ALTER TABLE',
+                'b': ' MODIFY TABLE',
+                'c': ' INSERT COLUMN',
+                'd': ' CREATE COLUMN'
+            },
+            'correct': 'a'
+        }, {
+            'question': "Qaysi SQL buyruq ma'lumotlarni yangilash uchun ishlatiladi?",
+            'answers': {
+                'a': '  UPDATE',
+                'b': ' MODIFY',
+                'c': ' CHANGE',
+                'd': ' REFRESH'
+            },
+            'correct': 'a'
+        }, {
+            'question': "Qaysi SQL buyruq jadvaldan ma'lumotlarni o'chirish uchun ishlatiladi?",
+            'answers': {
+                'a': '  DELETE',
+                'b': ' REMOVE',
+                'c': ' CLEAR',
+                'd': ' TRIM'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda qaysi kalit soâ€-z saralashni oshuvchi tartibda amalga oshiradi?',
+            'answers': {
+                'a': '  ORDER BY ASC',
+                'b': ' ORDER BY DESC',
+                'c': ' SORT BY ASC',
+                'd': ' ASCENDING'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "GROUP BY" nima uchun ishlatiladi?',
+            'answers': {
+                'a': " Bir xil qiymatlar bo'yicha guruhlash uchun",
+                'b': ' Jadval ustunlarini birlashtirish uchun',
+                'c': ' Yangi ustun yaratish uchun',
+                'd': " To'plamlarni birlashtirish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "HAVING" nimaga xizmat qiladi?',
+            'answers': {
+                'a': ' Guruhlangan natijalarni filtrlash uchun',
+                'b': ' Filtrlash uchun',
+                'c': ' Jadval yaratish uchun',
+                'd': " Indeksni o'chirish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "DISTINCT" qaysi holatda ishlatiladi?',
+            'answers': {
+                'a': '  Takrorlanmaydigan qiymatlarni qaytarish uchun',
+                'b': ' Takrorlanuvchi qiymatlarni qaytarish uchun',
+                'c': " Faqat NULL qiymatlarni ko'rsatish uchun",
+                'd': " Ustun nomlarini o'chirish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': "Qaysi SQL kalit so'z ma'lumotlar sonini hisoblash uchun ishlatiladi?",
+            'answers': {
+                'a': '  COUNT',
+                'b': ' TOTAL',
+                'c': ' SUM',
+                'd': ' AVERAGE'
+            },
+            'correct': 'a'
+        }, {
+            'question': '"JOIN" qaysi holatda ishlatiladi?',
+            'answers': {
+                'a': "  Ikki yoki undan ortiq jadvalni bog'lash uchun",
+                'b': " Bir jadvalni boshqa jadvalga qo'shish uchun",
+                'c': ' Jadval ustunlarini indekslash uchun',
+                'd': " Jadval ma'lumotlarini filtrlash uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': "Bir jadvaldagi ustunlar boshqa jadvaldagi ma'lumotlar bilan qanday bog'lanadi?",
+            'answers': {
+                'a': ' Foreign Key orqali',
+                'b': ' Primary Key orqali',
+                'c': ' Index orqali',
+                'd': ' Unique Key orqali'
+            },
+            'correct': 'a'
+        },{
+            'question': '"One-to-Many" bog\'lanish deganda nimani tushunasiz?',
+            'answers': {
+                'a': " Bir qator boshqa jadvalning bir nechta qatorlariga bog'langan",
+                'b': " Bir qator bir nechta jadvalga bog'langan",
+                'c': " Barcha satrlar bir ustunga bog'langan",
+                'd': " Har bir satr bir ustunga bog'langan"
+            },
+            'correct': 'a'
+        }, {
+            'question': '"Normalization" maqsadi nima?',
+            'answers': {
+                'a': "  Ma'lumotlarning takrorlanishini kamaytirish va tuzilmani optimallashtirish",
+                'b': ' Foydalanuvchilarni himoya qilish',
+                'c': ' Jadvalni formatlash',
+                'd': " Ma'lumotlarni zaxiralash"
+            },
+            'correct': 'a'
+        }, {
+            'question': '"Denormalization" nima uchun ishlatiladi?',
+            'answers': {
+                'a': "  Ma'lumotlar o'qilishini tezlashtirish uchun",
+                'b': " Ma'lumotlarning takrorlanishini oshirish uchun",
+                'c': " Ma'lumotlarni qayta tiklash uchun",
+                'd': " Ma'lumotlarni eksport qilish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': "Birinchi normallashtirish qoidasi (1NF) nimani ta'minlaydi?",
+            'answers': {
+                'a': "  Har bir ustun atomik qiymatlarga ega bo'lishini",
+                'b': " Bir xil ustunlar bo'lishini",
+                'c': ' Takrorlanmas ustunlarni yaratishni',
+                'd': ' Indekslarni avtomatik yaratishni'
+            },
+            'correct': 'a'
+        }, {
+            'question': '"Composite Key" nima?',
+            'answers': {
+                'a': ' Bir nechta ustunlardan iborat asosiy kalit',
+                'b': ' Yagona ustundan iborat kalit',
+                'c': ' Indekslashgan ustun',
+                'd': ' XOR orqali olingan kalit'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Unique kalit nima uchun ishlatiladi?',
+            'answers': {
+                'a': '  Takrorlanuvchi qiymatlarni oldini olish uchun',
+                'b': " Ma'lumotlarni tartiblashtirish uchun",
+                'c': " Bir nechta jadvalni bog'lash uchun",
+                'd': " Jadvalni o'chirish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Primary Key qachon ishlatiladi?',
+            'answers': {
+                'a': '  Jadval satrlarini birlamchi kalit sifatida belgilash uchun',
+                'b': ' Jadvalni indekslash uchun',
+                'c': " Qo'shimcha ustun yaratish uchun",
+                'd': ' Cheklovlar yaratish uchun'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "DROP" buyrugâ€-i nima qiladi?',
+            'answers': {
+                'a': "  Jadval yoki ob'ektni butunlay o'chiradi",
+                'b': " Ma'lumotlarni o'chiradi",
+                'c': ' Indeksni tozalaydi',
+                'd': " Faqat ustunni bo'shatadi"
+            },
+            'correct': 'a'
+        }, {
+            'question': '"CHECK" cheklovi nima uchun ishlatiladi?',
+            'answers': {
+                'a': "  Ma'lumotlar o'zgarishini cheklash uchun",
+                'b': ' Foydalanuvchilarni autentifikatsiya qilish uchun',
+                'c': ' Indeksni tekshirish uchun',
+                'd': " NULL qiymatlarni o'chirish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "INNER JOIN" nima uchun ishlatiladi?',
+            'answers': {
+                'a': " Har ikkala jadvaldagi mos keladigan ma'lumotlarni birlashtirish uchun",
+                'b': ' Jadvalni boshqa jadvalga qoâ€-shish uchun',
+                'c': " Faqat bir jadvaldagi ma'lumotlarni birlashtirish uchun",
+                'd': " Barcha ma'lumotlarni birlashtirish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "LEFT JOIN" qanday ma\'lumotlarni qaytaradi?',
+            'answers': {
+                'a': " Chap jadvaldagi barcha ma'lumotlarni, mos kelmasa ham",
+                'b': " Faqat ikkala jadvaldagi mos ma'lumotlarni",
+                'c': " Faqat oâ€-ng jadvaldagi mos ma'lumotlarni",
+                'd': ' Mos keladigan satrlarni chiqaradi'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "RIGHT JOIN" nima qiladi?',
+            'answers': {
+                'a': "  Oâ€-ng jadvaldagi barcha ma'lumotlarni qaytaradi, mos kelmasa ham",
+                'b': ' Faqat chap jadvalni koâ€-rsatadi',
+                'c': ' Har ikkala jadvalni birlashtiradi',
+                'd': " Mos kelmagan ma'lumotlarni chiqaradi"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "FULL OUTER JOIN" qaysi holatda ishlatiladi?',
+            'answers': {
+                'a': " Ikkala jadvaldagi barcha ma'lumotlarni, mos boâ€-lgan va boâ€-lmaganlarni birlashtirish uchun",
+                'b': " Faqat mos kelmagan ma'lumotlarni chiqarish uchun",
+                'c': ' Faqat oâ€-ng jadvalni qaytarish uchun',
+                'd': ' Jadvalni oâ€-chirish uchun'
+            },
+            'correct': 'a'
+        }, {
+            'question': "Qaysi SQL buyruq jadvaldagi barcha ma'lumotlarni oâ€-chiradi?",
+            'answers': {
+                'a': '  TRUNCATE TABLE',
+                'b': ' DELETE ALL',
+                'c': ' REMOVE TABLE',
+                'd': ' CLEAR DATA'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "LIMIT" nima uchun ishlatiladi?',
+            'answers': {
+                'a': "  Qaytarilgan ma'lumotlar sonini cheklash uchun",
+                'b': ' Jadvalni cheklash uchun',
+                'c': ' Ustunlarni cheklash uchun',
+                'd': " Faqat chap ma'lumotlarni koâ€-rsatish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "ORDER BY" qanday ma\'lumot beradi?',
+            'answers': {
+                'a': "  Ma'lumotlarni alfavit tartibida yoki qiymatlar boâ€-yicha tartiblash uchun",
+                'b': ' Jadval ustunlarini koâ€-rsatish uchun',
+                'c': " Mos ma'lumotlarni guruhlash uchun",
+                'd': " Faqat raqamli ma'lumotlarni koâ€-rsatish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': '"INSERT INTO" buyrugâ€-i qachon ishlatiladi?',
+            'answers': {
+                'a': "  Jadvalga yangi ma'lumotlar qoâ€-shish uchun",
+                'b': ' Jadvalni yangilash uchun',
+                'c': ' Ustunlarni oâ€-zgartirish uchun',
+                'd': " Ma'lumotlarni oâ€-chirish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "BETWEEN" qanday ishlatiladi?',
+            'answers': {
+                'a': '  Bir ustundagi qiymatlar orasidagi oraliqni aniqlash uchun',
+                'b': ' Ikkita jadvalni bogâ€-lash uchun',
+                'c': ' NULL qiymatlarni filtrlash uchun',
+                'd': " Guruhlangan ma'lumotlarni chiqarish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "LIKE" operatori nima qiladi?',
+            'answers': {
+                'a': '  Belgilangan shablonga mos keladigan qiymatlarni qidiradi',
+                'b': ' Toâ€-liq mos keladigan qiymatlarni qidiradi',
+                'c': ' Null qiymatlarni oâ€-chirish uchun ishlatiladi',
+                'd': ' Ustunlarni tartiblash uchun ishlatiladi'
+            },
+            'correct': 'a'
+        }, {
+            'question': "Indekslar ma'lumotlarga qanday ta'sir qiladi?",
+            'answers': {
+                'a': "  Ularni tezroq olishni ta'minlaydi",
+                'b': ' Ularni sekinlashtiradi',
+                'c': " Ma'lumotlarni oâ€-chiradi",
+                'd': ' Ularni tahlil qiladi'
+            },
+            'correct': 'a'
+        }, {
+            'question': '"Clustered Index" qaysi ma\'lumotlar ustida ishlaydi?',
+            'answers': {
+                'a': ' Jadvallarni toâ€-gâ€-ridan-toâ€-gâ€-ri tartiblash uchun',
+                'b': ' Faqat raqamli ustunlar',
+                'c': ' Null qiymatlarni filtrlash uchun',
+                'd': ' Faqat asosiy kalitlar'
+            },
+            'correct': 'a'
+        }, {
+            'question': '"Non-clustered Index" nima qiladi?',
+            'answers': {
+                'a': "  Ma'lumotlarni tashqi fayl orqali tezkor kirishni ta'minlaydi",
+                'b': ' Jadvallarni tartiblaydi',
+                'c': ' Asosiy kalitlarni saqlaydi',
+                'd': " Ma'lumotlarni oâ€-chiradi"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda tranzaksiyalar nima uchun ishlatiladi?',
+            'answers': {
+                'a': " Ma'lumotlarni qayta tiklash va izchil oâ€-zgarishlarni amalga oshirish uchun",
+                'b': " Ma'lumotlarni saqlash uchun",
+                'c': ' Fayllarni yuklash uchun',
+                'd': ' Ustunlarni birlashtirish uchun'
+            },
+            'correct': 'a'
+        }, {
+            'question': '"COMMIT" buyruq tranzaksiyada nima qiladi?',
+            'answers': {
+                'a': '  Oâ€-zgarishlarni tasdiqlaydi va saqlaydi',
+                'b': ' Oâ€-zgarishlarni bekor qiladi',
+                'c': " Ma'lumotlarni oâ€-chiradi",
+                'd': ' Indekslarni tozalaydi'
+            },
+            'correct': 'a'
+        }, {
+            'question': '"ROLLBACK" buyruq qachon ishlatiladi?',
+            'answers': {
+                'a': ' Tranzaksiya oâ€-zgarishlarini bekor qilish uchun',
+                'b': " Ma'lumotlarni saqlash uchun",
+                'c': ' Tranzaksiyani tasdiqlash uchun',
+                'd': ' Indekslarni yangilash uchun'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "VIEW" deganda nima tushuniladi?',
+            'answers': {
+                'a': '  Jadval yoki soâ€-rov natijasida qaytarilgan virtual jadval',
+                'b': ' Jadvallar uchun yangi ustun yaratish vositasi',
+                'c': ' Faqatgina foydalanuvchi interfeysi',
+                'd': ' Ustunlarni oâ€-zgartirish vositasi'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "Stored Procedure" nima uchun ishlatiladi?',
+            'answers': {
+                'a': '  Oldindan yozilgan va serverda bajariladigan kodni saqlash uchun',
+                'b': " Jadval ma'lumotlarini saqlash uchun",
+                'c': ' Tranzaksiyalarni boshqarish uchun',
+                'd': ' Indekslarni boshqarish uchun'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQLda "Trigger" nima?',
+            'answers': {
+                'a': " Jadvaldagi ma'lumotlar oâ€-zgarganda avtomatik ishga tushadigan dastur boâ€-lagi",
+                'b': " Jadval ma'lumotlarini oâ€-chiradi",
+                'c': ' Indekslarni yangilash uchun ishlatiladi',
+                'd': ' Faqat foydalanuvchini roâ€-yxatdan oâ€-tkazadi'
+            },
+            'correct': 'a'
+        }, {
+            'question': '"Foreign Key Constraint" nima uchun ishlatiladi?',
+            'answers': {
+                'a': "  Jadval orasidagi ma'lumotlarning izchilligini ta'minlash uchun",
+                'b': ' Har bir ustun uchun indeks yaratish uchun',
+                'c': " Jadval ma'lumotlarini avtomatik tozalash uchun",
+                'd': ' Null qiymatlarni chiqarish uchun'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Ma`lumotlar bazasida qanday ma`lumotlar saqlanadi?',
+            'answers': {
+                'a': '  Ob`ektlar, ularning xossalari va xarakteristikalari to`g`risidagi ma`lumotlar',
+                'b': ' Grafik axborotlarning xossalari va xarakteristikalari to`g`risidagi ma`lumot',
+                'c': ' Video ma`lumotlarning xossalari va xarakteristikalari to`g`risidagi ma`lumotlar',
+                'd': ' Tezkor axborotlarning xossalari va xarakteristikalari to`g`risidagi ma`lumotlar'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MBBT bu ...',
+            'answers': {
+                'a': '  Ma`lumotlarni boshqarish funktsiyasini amalga oshiruvchi dasturli ta`minot',
+                'b': ' Elektron jadvallar bilan ishlovchi va ularni saqlovchi vosita',
+                'c': ' Ma`lumotlarni boshqarish funktsiyasini amalga oshiruvchi texnik ta`minoti',
+                'd': ' Grafik axborotlarni saqlovchi va qayta ishlovchi vosita'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Norton Commander kataloglar strukturasi qaysi ko`rinishdagi MB ga misol bo`la oladi?',
+            'answers': {
+                'a': '  Ierarxik ko`rinishdagi',
+                'b': ' Relyatsion (jadval) ko`rinishdagi',
+                'c': ' Tarmoq ko`rinishdagi',
+                'd': ' Ixtiyoriy ko`rinishdagi'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Internet tarmog`i qaysi ko`rinishdagi MB ga misol bo`la oladi?',
+            'answers': {
+                'a': '  Tarmoq ko`rinishdagi',
+                'b': ' Relyatsion (jadval) ko`rinishdagi',
+                'c': ' Ierarxik (daraxtsimon) ko`rinishdagi',
+                'd': ' Ixtiyoriy ko`rinishdagi'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Maydon va yozuv tushunchasi qaysi ko`rinishdagi MB ga tegishli?',
+            'answers': {
+                'a': '  Relyatsion ko`rinishdagi',
+                'b': ' Tarmoq ko`rinishdagi',
+                'c': ' Ierarxik (daraxtsimon) ko`rinishdagi',
+                'd': ' Ixtiyoriy ko`rinishdagi'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MB si … uchun foydalaniladi.',
+            'answers': {
+                'a': '  katta xajimdagi ma`lumotlarni saqlovchi, tartiblangan ma`lumotlar modifikatsiyasini yaratish',
+                'b': ' karporativ tarmoqni tashkillash',
+                'c': ' MB dan mantiqiy yangi ma`lumotlarni olish uchun',
+                'd': ' MB ga mantiqiy yangi ma`lumotlarni kiritish uchun'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Mb da ustunlar  nima deyiladi?',
+            'answers': {
+                'a': ' Maydonlar',
+                'b': ' Yozuvlar',
+                'c': '  Atributlar',
+                'd': ' Munosabatlar'
+            },
+            'correct': 'c'
+        }, {
+            'question': 'Mb da satrlar nima deyiladi?',
+            'answers': {
+                'a': '  Yozuvlar',
+                'b': ' Maydonlar',
+                'c': ' Atribut',
+                'd': ' Munosabatlar'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tili qanday til hisoblanadi?',
+            'answers': {
+                'a': '  Relyatsion',
+                'b': ' Paskal',
+                'c': ' SI++',
+                'd': ' Fortran tili'
+            },
+            'correct': 'a'
+        }, {
+            'question': ' “Relyatsion”so`zi qanday ma`noni anglatadi?',
+            'answers': {
+                'a': '  Munosabat',
+                'b': ' Yozuv',
+                'c': ' Domenlar',
+                'd': ' Ob`yekt'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MB ni biror ob`ektini yangilashda SQL tilining qaysi operatoridan foydalaniladi?',
+            'answers': {
+                'a': '  UPDATE',
+                'b': ' DELETE',
+                'c': ' SELECT',
+                'd': ' INSERT'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MB dan biror ob`ektni o`chirishda SQL tilining qaysi operatoridan foydalaniladi?',
+            'answers': {
+                'a': '  DELETE',
+                'b': ' UPDATE',
+                'c': ' SELECT',
+                'd': ' INSERT'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MB ga biror ob`ektni kiritish (qo`shish) uchun SQL tilining qaysi operatoridan foydalaniladi?',
+            'answers': {
+                'a': ' INSERT',
+                'b': ' DELETE',
+                'c': ' SELECT',
+                'd': ' UPDATE'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MB dagi biror ob`ektni tanlab olishda SQL tilining qaysi operatoridan foydalaniladi?',
+            'answers': {
+                'a': '  SELECT',
+                'b': ' DELETE',
+                'c': ' UPDATE',
+                'd': ' INSERT'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL relyatsion tilining operatorlarini ko`rsating',
+            'answers': {
+                'a': '  SELECT, INSERT, DELETE, UPDATE',
+                'b': ' ACT, GET, INSERT, DELETE, REPLACE',
+                'c': ' ACT, GET, REPLACE',
+                'd': ' ACT, GET, CONTINUE'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Ierarxik MB da amallar bajarishda qaysi operatorlardan foydalaniladi?',
+            'answers': {
+                'a': ' ACT, GET, INSERT, DELETE, REPLACE',
+                'b': ' SELECT, INSERT, DELETE va UPDATE',
+                'c': ' ACT, GET, REPLACE',
+                'd': '  ACT, GET, CONTINUE'
+            },
+            'correct': 'd'
+        }, {
+            'question': 'Tarmoq ko`rinishdagi mbda amallar bajarishda qaysi operatorlardan foydalaniladi?',
+            'answers': {
+                'a': ' ACT, GET, CONTINUE',
+                'b': ' SELECT, INSERT, DELETE, UPDATE',
+                'c': ' ACT, GET, REPLACE',
+                'd': ' ACT, GET, INSERT, DELETE, REPLACE'
+            },
+            'correct': 'd'
+        }, {
+            'question': 'Mbda obekt bu',
+            'answers': {
+                'a': ' Yozuv',
+                'b': ' Atribut',
+                'c': ' Aloqa',
+                'd': ' Maydon'
+            },
+            'correct': 'c'
+        }, {
+            'question': 'Maydon nomining uzunligi eng ko`pi bilan nechta belgidan tashkil topadi?',
+            'answers': {
+                'a': '  64ta belgidan',
+                'b': ' 10ta belgidan',
+                'c': ' 8ta belgidan',
+                'd': ' 65ta belgidan'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Kalit maydonlarning turini ko`rsating',
+            'answers': {
+                'a': ' Oddiy, tarkibli, schetchikli',
+                'b': ' Oddiy, schetchikli, murakkab',
+                'c': '  Oddiy, tarkibli, murakkab',
+                'd': ' Oddiy, tarkibli, birlamchi'
+            },
+            'correct': 'c'
+        }, {
+            'question': 'Birga bir qiymatli aloqalar asosan nima uchun ishlatiladi?',
+            'answers': {
+                'a': ' Juda katta jadvallarni qismlarga bo`lishda',
+                'b': ' Ma`lumotli jadval bilan asosiy jadval o`rtasida aloqa o`rnatishda',
+                'c': ' Asosiy jadval bilan yordamchi jadval o`rtasida aloqa o`rnatishda',
+                'd': ' Yordamchi jadvalni yaratish uchun'
+            },
+            'correct': 'b'
+        }, {
+            'question': 'Birga ko`p qiymatli aloqalar qaysi hollarda ishlatiladi?',
+            'answers': {
+                'a': ' Ma`lumotli jadval bilan asosiy jadval o`rtasida aloqa o`rnatishda',
+                'b': ' Juda katta jadvallarni qismlarga bo`lishda',
+                'c': '  Asosiy jadval bilan yordamchi jadval o`rtasida aloqa o`rnatishda',
+                'd': ' Yordamchi jadval bilan ma`lumotli jadval o`rtasida aloqa o`rnatishda'
+            },
+            'correct': 'c'
+        }, {
+            'question': 'Ko`pga ko`p qiymatli aloqalarni o`rnatish uchun qaysi jadvaldan foydalaniladi?',
+            'answers': {
+                'a': '  Yordamchi jadvaldan',
+                'b': ' Ma`lumotli jadvaldan',
+                'c': ' Asosiy jadvaldan',
+                'd': ' Bo`sh jadvaldan'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Forma hosil qilish qanday amalga oshiriladi?',
+            'answers': {
+                'a': '  Forma→ Sozdat tanlanadi',
+                'b': ' Vid menyusidan Rejim formy tanlanadi',
+                'c': ' Sozdat tugmasi bosiladi',
+                'd': ' Vid menyusidan Svoystva bo`limi tanlanadi'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Yozuvlari takrorlanmaydigan maydonni aniqlang.',
+            'answers': {
+                'a': '  Уникал',
+                'b': ' OLE',
+                'c': ' Дата/время',
+                'd': ' Логический'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'So`rovni ishga tushirib saqlab qo`yish qanday amalga oshiriladi?',
+            'answers': {
+                'a': '  Файл → Сохранить как tanlanadi',
+                'b': ' Запросы → Параметры  tanlanadi',
+                'c': ' Файл→ Открыть tanlanadi',
+                'd': ' Постройт  tugmasi bosiladi'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Yo`qotuvchi so`rovlar qanday hosil qilinadi?',
+            'answers': {
+                'a': '  Запросы → Удаление  bo`limi tanlanadi',
+                'b': ' Запросы  → Параметры tanlanadi',
+                'c': ' So`rov blankasida Условия отбора satriga shart yoziladi',
+                'd': ' Вид→ групповые операции tanlanadi'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Ishga kirish jarayonida to`ldiriladigan shaxsiy varaqalar qanday ob`yekt hisoblanadi ?',
+            'answers': {
+                'a': ' Forma',
+                'b': ' Jadval',
+                'c': ' Hisobot',
+                'd': ' So`rov'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Hodisa nima?',
+            'answers': {
+                'a': '  Ob`ektda kechuvchi aniq harakat',
+                'b': ' Makrokomandalar',
+                'c': ' Bir necha makrokomandalarning birlashmasi',
+                'd': ' Protseduralar'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Shartli ifoda qaysi ko`rsatmalarda tekshiriladi?',
+            'answers': {
+                'a': '  If…then',
+                'b': ' Private Sub',
+                'c': ' End Sub',
+                'd': ' Function'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tili nima maqsadda ishlatiladi?',
+            'answers': {
+                'a': '  So`rov  tashkil qilish uchun',
+                'b': ' Jadval tuzish uchun',
+                'c': ' Hisobot tashkil qilish uchun',
+                'd': ' Forma tashkil qilish uchun'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilida zapros tashkil qilish uchun qaysi buyruqlardan foydalaniladi?',
+            'answers': {
+                'a': ' LIKE',
+                'b': ' UPDATE',
+                'c': '  SELECT',
+                'd': ' GET'
+            },
+            'correct': 'c'
+        }, {
+            'question': 'So`rovda istalgan uzunlikdagi formulalarni kiritish uchun nimadan foydalaniladi?',
+            'answers': {
+                'a': '  Shift+F2 tugmasidan ',
+                'b': ' Добавить tugmasidan',
+                'c': ' Вид tugmasidan',
+                'd': ' Создать tugmasidan'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Bog`langan maydon qanday tashkil qilinadi?',
+            'answers': {
+                'a': '  Maydon elementi orqali',
+                'b': ' Вид tugmasi orqali',
+                'c': ' Создать запросы tugmasi orqali',
+                'd': ' Добавить tugmasi orqali'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Kalit maydon bu',
+            'answers': {
+                'a': '  Yagona qiymatga ega bo`lgan maydon',
+                'b': ' Bo`sh qiymatga ega bo`lgan maydon',
+                'c': ' Takrorlanuvchi qiymatga ega bo`lgan maydon',
+                'd': ' Ko`p qiymatga ega bo`lgan maydon'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Ma`lumotlarni saqlash va qayta ishlash uchun mo`ljallangan tashkiliy struktura',
+            'answers': {
+                'a': '  Ma`lumotlar bazasi',
+                'b': ' Predmet soha',
+                'c': ' Ma`lumotlar majmui',
+                'd': ' Ma`lumotlar bazasini boshqarish tizimi'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Jadval ko`rinishidagi ma`lumotlar bazasi bu',
+            'answers': {
+                'a': ' Relyatsion ma`lumotlar bazasi ',
+                'b': ' Iyerarxik ma`lumotlar bazasi',
+                'c': ' Tarmoq ko`rinishdagi ma`lumotlar bazasi',
+                'd': ' Massiv ko`rinishdagi ma`lumotlar bazasi'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Maydon va yozuvdan tashkil topgan ma`lumotlar bazasi bu',
+            'answers': {
+                'a': '  Relyatsion ma`lumotlar bazasi ',
+                'b': ' Iyerarxik ma`lumotlar bazasi',
+                'c': ' Tarmoq ko`rinishdagi ma`lumotlar bazasi',
+                'd': ' Massiv ko`rinishdagi ma`lumotlar'
+            },
+            'correct': 'a'
+        },
+        {
+            'question': 'Relyatsion MB ning asosiy belgisi',
+            'answers': {
+                'a': '  Ikki o`lchovli jadval, unda ma`lumotlar saqlanadi',
+                'b': ' Pastki pog`onadagi elementlar yuqori pog`onadagi elementlarga bo`ysunadi',
+                'c': ' Turli sathdagi elementlar orasida bog`lanish «erkin»',
+                'd': ' Ko`p o`lchovli jadval'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Ierarxik (daraxtsimon) MB ning asosiy belgisi',
+            'answers': {
+                'a': ' Pastki pog`onadagi elementlar yuqori pog`onadagi elementlarga bo`ysunadi',
+                'b': ' Ikki o`lchovli jadval, unda ma`lumotlar saqlanadi',
+                'c': ' Turli sathdagi elementlar orasida bog`lanish «erkin», ya`ni bir-biriga bo`ysunmaydi',
+                'd': ' Ko`p o`lchovli jadval'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MBBT ning asosiy belgisi',
+            'answers': {
+                'a': '  Ma`lumotlar bazasini hosil qilish, to`ldirish va qayta ishlovchi tizim',
+                'b': ' Ma`lum bir predmet sohani o`z ichiga olgan ma`lumotlar majmuidir',
+                'c': ' Kompyuterda tez amalga oshirish mumkin bo`lgan masalalar turkumu',
+                'd': ' Yangi bazalar sistemasini yaratishga mo`ljallangan vositalar majmuidir'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Faqat 1 ta jadval bilan ishlash imkonini beruvchi MBBT',
+            'answers': {
+                'a': '  Oddiy MBBT',
+                'b': ' Mukammal',
+                'c': ' Relyatsion',
+                'd': ' Kliyent-server'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Bir necha jadval bilan ishlash imkonini beruvchi MBBT',
+            'answers': {
+                'a': ' Mukammal',
+                'b': ' Oddiy',
+                'c': ' Mijoz-server',
+                'd': ' Oddiy, mijoz-server'
+            },
+            'correct': 'c'
+        }, {
+            'question': 'Oddiy MBBT larni ko`rsating',
+            'answers': {
+                'a': ' PC-File, Reflex',
+                'b': ' Oracle, Lotus',
+                'c': ' Oracle, Informix, MS SQL Server',
+                'd': '  Dbase, Karat'
+            },
+            'correct': 'd'
+        }, {
+            'question': 'Mijoz-server MBBT larni ko`rsating',
+            'answers': {
+                'a': '  Oracle, Informix, MS SQL Server',
+                'b': ' PC-File, Reflex',
+                'c': ' Oracle, Lotus',
+                'd': ' Dbase, Karat, Access, FoxPro, Lotus'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Nomga ega bo`lgan barcha narsalar -bu',
+            'answers': {
+                'a': ' Ob`ektlar',
+                'b': ' Jadvallar',
+                'c': ' So`rovlar',
+                'd': ' Forma'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Biror predmet sohaning informatsion modeli - bu',
+            'answers': {
+                'a': ' Ma`lumotlar bazasi',
+                'b': ' Bilimlar bazasi va sun`iy intellect',
+                'c': ' Algoritm',
+                'd': ' Dasturlash tillari'
+            },
+            'correct': 'b'
+        }, {
+            'question': 'Ob`ektlar, ularning xossalari va xarakteristikalari to`g`risidagi ma`lumotlar qaerda saqlanadi?',
+            'answers': {
+                'a': '  Ma`lumotlar bazasida',
+                'b': ' Elektron jadvallarda',
+                'c': ' Video ma`lumotlarda',
+                'd': ' Tezkor axborotlarda'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Ma`lumotlarni boshqarish funktsiyasini amalga oshiruvchi dasturli ta`minot - bu',
+            'answers': {
+                'a': ' Ma`lumotlar bazasini boshqarish tizimlari',
+                'b': ' Elektron jadvallar bilan ishlash imkonini beruvchi vosita',
+                'c': ' Axborot ta`minoti',
+                'd': ' Grafik axborotlarni qayta ishlovchi vosita'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Relyasion MB da axborotlar qanday ko`rinishda tashkil etiladi ?',
+            'answers': {
+                'a': ' To`g`ri to`rtburchak  ko`rinishdagi jadvalda',
+                'b': ' Tarmog`da',
+                'c': ' Faylda',
+                'd': ' Ixtiyoriy ko`rinishdagi ma`lumotlar bazasida'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MB da maktab o`uvchilari haqidagi ma`lumotlar quyidagi maydonlarda saqlanmoqda: familiyasi, sinf, test bali, amaliyot bali, umumiy ball. Umumiy ball maydonini tipi qanday bo`ladi.',
+            'answers': {
+                'a': '  Raqamili',
+                'b': ' Mantiqiy',
+                'c': ' Ixtiyoriy',
+                'd': ' Belgili'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Relyatsion (jadval) ko`rinishdagi MB ga tegishli tushuncha qaysi?',
+            'answers': {
+                'a': ' Maydon va yozuv',
+                'b': ' Sath, tugun, bog`lanish',
+                'c': ' Quyi sath',
+                'd': ' Yuqori sath'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Qaysi til relyatsion til hisoblanadi?',
+            'answers': {
+                'a': '  SQL tili',
+                'b': ' Paskal',
+                'c': ' C++',
+                'd': ' Fortran tili'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilining UPDATE operatoridan qachon foydalaniladi?',
+            'answers': {
+                'a': '  Mbning biror ob`ektini yangilashda',
+                'b': ' Mbdan biror ob`ektni o`chirishda',
+                'c': ' Mbga biror ob`ektni kiritish (qo`shish)da',
+                'd': ' Mbdagi biror ob`ektni tanlab olishda'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilining DELETE operatoridan qachon foydalaniladi?',
+            'answers': {
+                'a': ' Mbdan biror ob`ektni o`chirishda',
+                'b': ' Mbning biror ob`ektini yangilashda',
+                'c': ' Mbga biror ob`ektni kiritish (qo`shish)da',
+                'd': ' Mbdagi biror ob`ektni tanlashda'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilining INSERT operatoridan qachon foydalaniladi?',
+            'answers': {
+                'a': '  Mbga biror ob`ektni kiritishda',
+                'b': ' Mbdagi biror ob`ektni tanlab olishda',
+                'c': ' Mbdan ob`ektni o`chirishda',
+                'd': ' Mbning biror ob`ektini yangilashda'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilining SELECT operatoridan qachon foydalaniladi?',
+            'answers': {
+                'a': ' Mbdagi biror ob`ektni tanlab olishda',
+                'b': ' Mbdan biror ob`ektni o`chirishda',
+                'c': ' Mbning biror ob`ektini yangilashda',
+                'd': ' Mbga biror ob`ektni kiritish (qo`shish)da'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Mbda ustunlarni ifodalaydigan asosiy element -bu',
+            'answers': {
+                'a': ' Maydon',
+                'b': ' Kalit maydon',
+                'c': ' Kontseptual sxema',
+                'd': ' Ob`ekt'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MB ning mantiqiy ma`nodagi tuzilishini ifodalovchi element -bu',
+            'answers': {
+                'a': '  Kontseptual sxema',
+                'b': ' Takorlanmaydigan maydon',
+                'c': ' Kalit maydon',
+                'd': ' Ob`ekt'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'A jadvalning har bir yozuviga B jadvalning bittadan ortiq bo`lmagan yozuvi mos kelgandagi aloqa -bu',
+            'answers': {
+                'a': ' Birga bir qiymatli aloqalar',
+                'b': '  Birga ko`p qiymatli aloqalar',
+                'c': ' Ko`pga ko`p aloqalar',
+                'd': ' Ikkita birga ko`p qiymatli aloqalar'
+            },
+            'correct': 'b'
+        }, {
+            'question': 'A jadvalning har bir yozuviga B jadvalning bir necha yozuvi mos kelgandagi aloqa -bu',
+            'answers': {
+                'a': ' Birga ko`p qiymatli aloqalar',
+                'b': ' Birga bir qiymatli aloqalar',
+                'c': ' Ko`pga ko`p qiymatli aloqalar',
+                'd': ' Ikkita birga ko`p qiymatli aloqalar'
+            },
+            'correct': 'c'
+        }, {
+            'question': 'A jadvalning har bir yozuviga B jadvalning bir necha yozuvi mos kelsa va aksincha aloqa-bu...',
+            'answers': {
+                'a': ' Ko`pga ko`p qiymatli aloqalar',
+                'b': ' Birga ko`p qiymatli aloqalar',
+                'c': ' Birga bir qiymatli aloqalar',
+                'd': ' Ikkita birga ko`p qiymatli aloqalar'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MB da eng kichik nomlangan element nima?',
+            'answers': {
+                'a': ' Maydon',
+                'b': ' Qolip (шаблон)',
+                'c': '  Katak',
+                'd': ' Yozuv'
+            },
+            'correct': 'c'
+        }, {
+            'question': 'MB da maydonlarni tipi qanday aniqlanadi?',
+            'answers': {
+                'a': '  Ma`lumotlarni turiga qarab',
+                'b': ' Maydon nomiga qarab',
+                'c': ' Maydon hajmiga qarab',
+                'd': ' Yozuvlar soniga qarab'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Juda katta jadvallarni qismlarga bo`lishda qanday aloqalar ishlatiladi?',
+            'answers': {
+                'a': '  Birga bir qiymatli aloqalar',
+                'b': ' Birga ko`p qiymatli aloqalar',
+                'c': ' Ko`pga ko`p qiymatli aloqalar',
+                'd': ' Oddiy aloqalar'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Ma`lumotli jadval bilan asosiy jadval o`rtasida aloqa o`rnatishda qanday aloqalar ishlatiladi?',
+            'answers': {
+                'a': ' Birga ko`p qiymatli aloqalar',
+                'b': ' Ko`pga ko`p qiymatli aloqalar',
+                'c': '   Oddiy aloqalar',
+                'd': ' Ikkita birga ko`p qiymatli aloqalar'
+            },
+            'correct': 'c'
+        }, {
+            'question': 'Qanday aloqalarni o`rnatishda yordamchi jadvaldan foydalaniladi?',
+            'answers': {
+                'a': '  Ko`pga ko`p qiymatli aloqalarni',
+                'b': ' Birga ko`p qiymatli aloqalarni',
+                'c': ' Oddiy aloqalarni',
+                'd': ' Ikkita birga ko`p qiymatli aloqalarni'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilida INTEGER ma`lumot turi nimani ifodalaydi?',
+            'answers': {
+                'a': '  Butun sonni',
+                'b': ' Haqiqiy sonni',
+                'c': ' O`nli sonni',
+                'd': ' Simvolli qatorni'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilida FLOAT ma`lumot turi nimani ifodalaydi?',
+            'answers': {
+                'a': '  Haqiqiy sonni',
+                'b': ' Butun sonni',
+                'c': ' O`nli sonni',
+                'd': ' Simvolli qatorni'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilida DECIMAL ma`lumot turi nimani ifodalaydi?',
+            'answers': {
+                'a': '  O`nli sonni',
+                'b': ' Haqiqiy sonni',
+                'c': ' Butun sonni',
+                'd': ' Simvolli qatorni'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilida CHAR ma`lumot turi nimani ifodalaydi?',
+            'answers': {
+                'a': '  Simvolli qatorni',
+                'b': ' Haqiqiy sonni',
+                'c': ' O`nli sonni',
+                'd': ' maxsus komanda orqali aniqlanuvchi formatdagi pulni'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilida maxsus komanda orqali aniqlanuvchi formatdagi pul',
+            'answers': {
+                'a': '  MONEY',
+                'b': ' DATE',
+                'c': ' TIME',
+                'd': ' BOOLEAN'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilida maxsus komanda orqali aniqlanuvchi formatdagi vaqt',
+            'answers': {
+                'a': '  TIME',
+                'b': ' DATE',
+                'c': ' MONEY',
+                'd': ' CHAR'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilida maxsus komanda orqali aniqlanuvchi formatdagi sana',
+            'answers': {
+                'a': '  DATE',
+                'b': ' MONEY',
+                'c': ' TIME',
+                'd': ' CHAR'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilida jadval yaratish operatori -bu',
+            'answers': {
+                'a': '  CREAT TABLE',
+                'b': ' DROP TABLE',
+                'c': ' ALTER TABLE',
+                'd': ' INSERT'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilida jadvalni o`zgartirish operatori -bu',
+            'answers': {
+                'a': '  ALTER TABLE',
+                'b': ' CREAT TABLE',
+                'c': ' DROP TABLE',
+                'd': ' INSERT'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'SQL tilida jadvalni o`chirish operatori -bu',
+            'answers': {
+                'a': '  DROP TABLE',
+                'b': ' ALTER TABLE',
+                'c': ' CREAT TABLE',
+                'd': ' INSERT'
+            },
+            'correct': 'a'
+        },
+        {
+            'question': 'SQL tilida jadvalga 1 ta satrni kiritish operatori -bu',
+            'answers': {
+                'a': '  INSERT',
+                'b': ' DROP',
+                'c': ' ALTER TABLE',
+                'd': ' CREAT TABLE'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Oddiy kalit -bu',
+            'answers': {
+                'a': '  Maydon yagona qiymatga ega bo`lganda aniqlanadigan kalit',
+                'b': ' Maydon yagona qiymatga ega bo`lmaganda bir necha maydonlardan iborat bo`lgan kalit',
+                'c': ' Jadvalga har bir yozuvni kiritish bilan bu maydonga avtomatik ravishda tartib raqami kiritiladi',
+                'd': ' Bir necha maydonlardan iborat bo`lgan kalit'
+            },
+            'correct': 'a'
+         }, {
+            'question': 'Tarkibli kalit -bu',
+            'answers': {
+                'a': '  Maydon yagona qiymatga ega bo`lmaganda bir necha maydonlardan iborat bo`lgan kalit',
+                'b': ' Jadvalga har bir yozuvni kiritish bilan bu maydonga avtomatik ravishda tartib raqami kiritiladi',
+                'c': ' Maydon yagona qiymatga ega bo`lganda ( kod yoki inventar raqamlari kabi) aniqlanadigan kalit',
+                'd': ' Bir necha maydonlardan iborat bo`lgan kalit'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Schetchikli kalit -bu',
+            'answers': {
+                'a': '  Jadvalga har bir yozuvni kiritish bilan bu maydonga avtomatik ravishda tartib raqami kiritiladi',
+                'b': ' Maydon yagona qiymatga ega bo`lganda ( kod yoki inventar raqamlari kabi) aniqlanadigan kalit',
+                'c': ' Maydon yagona qiymatga ega bo`lmaganda bir necha maydonlardan iborat bo`lgan kalit',
+                'd': ' Bir necha maydonlardan iborat bo`lgan kalit'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MB da buyruq yoki buyruqlardan keying o`zgartirishlarni saqlash (bekor) qilish nima deb ataladi?',
+            'answers': {
+                'a': '  Tranzaktsiya',
+                'b': ' Nusxalash',
+                'c': ' Saqlash',
+                'd': ' Cheklash'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Agar maydonlarning ikkalasi ham schetchik turidagi kalit maydonlar bo`lsa, ularda qanday aloqalar o`rnatiladi?',
+            'answers': {
+                'a': ' Birga bir qiymatli aloqalar',
+                'b': ' Birga ko`p qiymatli aloqalar',
+                'c': '  Ko`pga ko`p qiymatli aloqalar',
+                'd': ' Oddiy aloqalar'
+            },
+            'correct': 'c'
+        }, {
+            'question': 'Yordamchi jadval orqali bog`langan aloqalar -bu',
+            'answers': {
+                'a': ' Ko`pga ko`p qiymatli aloqalar',
+                'b': ' Birga bir qiymatli aloqalar',
+                'c': ' Ikkita birga ko`p qiymatli aloqalar',
+                'd': ' Oddiy aloqalar'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Ma`lumotli jadval bilan asosiy jadval o`rtasida o`rnatilgan aloqalar -bu',
+            'answers': {
+                'a': '  Birga ko`p qiymatli aloqalar',
+                'b': ' Ko`pga ko`p qiymatli aloqalar',
+                'c': ' Oddiy aloqalar',
+                'd': ' Birga bir qiymatli aloqalar'
+            },
+            'correct': 'a'
+        }, {
+            'question': '2 ta birga ko`p qiymatli aloqalarga mos keladigan aloqalar',
+            'answers': {
+                'a': '  Ko`pga ko`p qiymatli aloqalar',
+                'b': ' Ikkita birga bir qiymatli aloqalar',
+                'c': ' Birga ko`p qiymatli aloqalar',
+                'd': ' Oddiy aloqalar'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Ko`pga ko`p qiymatli aloqalar o`rnatilganda tuzilgan kalit',
+            'answers': {
+                'a': '  Tarkibli kalit',
+                'b': ' Oddiy kalit',
+                'c': ' Schetchikli kalit',
+                'd': ' Murakkab kalit'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'Kalit maydonlarni hosil qilishning eng sodda usuli',
+            'answers': {
+                'a': ' Schetchikli kalit',
+                'b': ' Tarkibli kalit',
+                'c': '  Oddiy kalit',
+                'd': ' Murakkab kalit'
+            },
+            'correct': 'c'
+        }, {
+            'question': 'Year([Sana]) funktsyasi nima vazifani beradi',
+            'answers': {
+                'a': ' «Sana» maydonidagi sananing hafta kuni nomeri',
+                'b': " «Sana» maydonidagi sananing yilini ajratish (yil to`rt xonali son ko'rinishida akslanadi)",
+                'c': ' «Sana» maydonidagi sananing kunini ajratish',
+                'd': " Matnni sana formatiga o'tkazish"
+            },
+            'correct': 'd'
+        }, {
+            'question': 'C++ Builderda MySQL bilan bog`lanish uchun qanday komponent ishlatiladi?',
+            'answers': {
+                'a': '  TSQLConnection',
+                'b': ' TButton',
+                'c': ' TEdit',
+                'd': ' TLabel'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MySQL serveriga ulanish uchun foydalanuvchi nomini qayerda kiritasiz?',
+            'answers': {
+                'a': '  SQLConnection.Params',
+                'b': ' Database Editor',
+                'c': ' Server Manager',
+                'd': ' SQLQuery.CommandText'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'C++ Builderda MySQL server manzilini ko`rsatish uchun qaysi parametr ishlatiladi?',
+            'answers': {
+                'a': '  HostName',
+                'b': ' DriverName',
+                'c': ' UserName',
+                'd': ' Database'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MySQL bilan ulanishni amalga oshirish uchun qaysi komponentdan foydalaniladi?',
+            'answers': {
+                'a': ' TSQLConnection',
+                'b': ' TSQLQuery',
+                'c': ' TClientDataSet',
+                'd': ' TDataSource'
+            },
+            'correct': 'a'
+        }, 
+        {'question': 'MySQL serverga ulanish uchun standart port raqami nima?', 'answers': {
+            'a': '  3306',
+            'b': ' 80',
+            'c': ' 1433',
+            'd': ' 5432'
+        }, 'correct': 'a'
+        }, {
+            'question': 'SQLConnection uchun DriverName parametri qanday qiymatni qabul qiladi?',
+            'answers': {
+                'a': '  MySQL',
+                'b': ' ODBC',
+                'c': ' Oracle',
+                'd': ' SQLite'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MySQL bilan ishlashda qaysi komponent SQL buyruqlarini bajaradi?',
+            'answers': {
+                'a': '  TSQLQuery',
+                'b': ' TSQLConnection',
+                'c': ' TSQLDataSet',
+                'd': ' TDBGrid'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'TSQLQuery komponentining asosiy vazifasi nima?',
+            'answers': {
+                'a': '  SQL buyruqlarini bajarish',
+                'b': ' MySQL serverni boshqarish',
+                'c': ' Foydalanuvchi interfeysini yaratish',
+                'd': " Ma'lumotlarni vizual ko`rsatish"
+            },
+            'correct': 'a'
+        }, {
+            'question': "C++ Builderda ma'lumotlar natijasini ko`rsatish uchun qaysi komponent ishlatiladi?",
+            'answers': {
+                'a': '  TDBGrid',
+                'b': ' TDataSource',
+                'c': ' TLabel',
+                'd': ' TSQLConnection'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'TSQLConnection komponentini ulash uchun qaysi metoddan foydalaniladi?',
+            'answers': {
+                'a': '  Connect',
+                'b': ' Open',
+                'c': ' Close',
+                'd': ' Execute'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MySQL ulanish uchun login ma`lumotlarini qanday saqlash mumkin?',
+            'answers': {
+                'a': '  TSQLConnection.Params',
+                'b': ' TDBGriColumns',
+                'c': ' TEdit.Text',
+                'd': ' TLabel.Caption'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MySQL ulanishni uzish uchun qaysi metoddan foydalaniladi?',
+            'answers': {
+                'a': '  Disconnect',
+                'b': ' Close',
+                'c': ' Stop',
+                'd': ' Terminate'
+            },
+            'correct': 'a'
+        }, {
+            'question': "MySQL bilan ishlashda qaysi ma'lumotlar formati qo`llaniladi?",
+            'answers': {
+                'a': ' SQL',
+                'b': ' JSON',
+                'c': ' XML',
+                'd': ' CSV'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'TSQLQuery uchun qaysi xususiyat SQL buyruqlarini saqlaydi?',
+            'answers': {
+                'a': ' SQL',
+                'b': ' Params',
+                'c': ' Text',
+                'd': ' Query'
+            },
+            'correct': 'a'
+        }, {
+            'question': "C++ Builderda ma'lumotlar o`zaro bog`lanish uchun qaysi komponentdan foydalaniladi?",
+            'answers': {
+                'a': ' TDataSource',
+                'b': ' TLabel',
+                'c': ' TButton',
+                'd': ' TSQLQuery'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'TSQLQuery komponentining qaysi metodi SQL buyruqlarini bajaradi?',
+            'answers': {
+                'a': ' ExecuteSQL',
+                'b': ' Open',
+                'c': ' Refresh',
+                'd': ' Connect'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MySQLda SELECT buyruqlari natijasini olish uchun qaysi metod ishlatiladi?',
+            'answers': {
+                'a': 'Open',
+                'b': ' ExecSQL',
+                'c': ' Close',
+                'd': ' Disconnect'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'TSQLConnection komponentida "Database" parametri nima uchun ishlatiladi?',
+            'answers': {
+                'a': " MySQL ma'lumotlar bazasini belgilash uchun",
+                'b': ' Ulanuvchi loginini ko`rsatish uchun',
+                'c': ' Server portini belgilash uchun',
+                'd': ' SQL buyruqlarini bajarish uchun'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'MySQL ulanishida xatolikni tekshirish uchun qaysi xususiyatdan foydalaniladi?',
+            'answers': {
+                'a': ' Connected',
+                'b': ' Params',
+                'c': ' SQL',
+                'd': ' Active'
+            },
+            'correct': 'a'
+        }, {
+            'question': "C++ Builderda ma'lumotlarni vizual boshqarish uchun qaysi komponent ishlatiladi?",
+            'answers': {
+                'a': ' TDBGrid',
+                'b': ' TEdit',
+                'c': ' TLabel',
+                'd': ' TButton'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'TSQLQuery komponentining Params xususiyati nima uchun ishlatiladi?',
+            'answers': {
+                'a': ' SQL buyruqlari parametrlarini o`rnatish uchun',
+                'b': " Ma'lumotlar bazasi ulanishini o`rnatish uchun",
+                'c': " Ma'lumotlarni saqlash uchun",
+                'd': " Ma'lumotlarni ko`rsatish uchun"
+            },
+            'correct': 'a'
+        }, {
+            'question': 'C++ Builderda MySQL bilan TLS ulanishini faollashtirish uchun qaysi parametr ishlatiladi?',
+            'answers': {
+                'a': ' SSLMode',
+                'b': ' SecureMode',
+                'c': ' EncryptionKey',
+                'd': ' Security'
+            },
+            'correct': 'a'
+        }, {
+            'question': "Ma'lumotlar bazasi ulanishini tekshirish uchun qanday metod ishlatiladi?",
+            'answers': {
+                'a': ' Ping',
+                'b': ' TestConnection',
+                'c': ' Connect',
+                'd': ' Check'
+            },
+            'correct': 'b'
+        }, {
+            'question': "C++ Builderda qaysi komponent foydalanuvchi interfeysi va ma'lumotlar bazasini bog`laydi?",
+            'answers': {
+                'a': ' TDataSource',
+                'b': ' TSQLQuery',
+                'c': ' TSQLConnection',
+                'd': ' TButton'
+            },
+            'correct': 'a'
+        }, { // shetdan
+            'question': "C++ Builderda ma'lumotlarni tahrirlash uchun qaysi komponent ishlatiladi?",
+            'answers': {
+                'a': ' TDBEdit',
+                'b': ' TDBGrid',
+                'c': ' TLabel',
+                'd': ' TSQLQuery'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'TDBGridda qatorlar orasida yurish uchun qaysi tugma ishlatiladi?',
+            'answers': {
+                'a': ' Arrow keys (↑↓)',
+                'b': ' Enter',
+                'c': ' Tab',
+                'd': ' Shift'
+            },
+            'correct': 'a'
+        }, {
+            'question': "C++ Builderda ma'lumotlar bazasiga ulanishni avtomatik bajarish uchun qaysi xususiyatni ishlatasiz?",
+            'answers': {
+                'a': ' Connected',
+                'b': ' AutoConnect',
+                'c': ' Active',
+                'd': ' OpenOnLoad'
+            },
+            'correct': 'a'
+        }, {
+            'question': "TSQLQuery yordamida ma'lumotlarni kiritish uchun qaysi SQL buyruq ishlatiladi?",
+            'answers': {
+                'a': ' INSERT',
+                'b': ' SELECT',
+                'c': ' UPDATE',
+                'd': ' DELETE'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'TSQLConnection komponentining LoginPrompt xususiyati nima qiladi?',
+            'answers': {
+                'a': ' Login oynasini ko`rsatadi',
+                'b': " Ma'lumotlarni shifrlaydi",
+                'c': ' Ulanishni avtomatlashtiradi',
+                'd': ' SQL so`rovlarini boshqaradi'
+            },
+            'correct': 'a'
+        }, {
+            'question': 'C++ Builderda SQL natijalarini yuklash uchun qaysi metod ishlatiladi?',
+            'answers': {
+                'a': ' Open',
+                'b': ' Fetch',
+                'c': ' LoadData',
+                'd': ' Execute'
+            },
+            'correct': 'a'
+         }, {
+            'question': 'MySQL ulanish uchun maxsus identifikatorni qanday tekshirasiz?',
+            'answers': {
+                'a': ' ConnectionName',
+                'b': ' DatabaseID',
+                'c': ' Identifier',
+                'd': ' SessionID'
+            },
+            'correct': 'd'
+        }, {
+            'question': "Ma'lumotlar bazasida ma'lumotlarni o`zgartirish uchun qaysi SQL buyruq ishlatiladi?",
+            'answers': {
+                'a': ' UPDATE',
+                'b': ' SELECT',
+                'c': ' DELETE',
+                'd': ' INSERT'
+            },
+            'correct': 'a'
+        }, {
+            'question': "Ma'lumotlar bazasidan ma'lumotlarni o`chirish uchun qaysi SQL buyruq ishlatiladi?",
+            'answers': {
+                'a': ' DELETE',
+                'b': ' DROP',
+                'c': ' TRUNCATE',
+                'd': ' CLEAR'
+            },
+            'correct': 'a'
+        }];
+
+
+
+
+
+     // Savollarni aralashtirish funksiyasi
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
